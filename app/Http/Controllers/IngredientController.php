@@ -21,10 +21,16 @@ class IngredientController extends Controller
         ]);
         return response()->json($ingredient, 201);
     }
-    public function show(){
+    public function show()
+    {
         $ingredient = Ingredient::all()->map(function ($recipe) {
             return $recipe;
         });
         return response()->json($ingredient, 200);
+    }
+    public function indexView($recipe_id)
+    {
+        $ingredients = Ingredient::all();
+        return view('pages.IngredientView', compact('ingredients', 'recipe_id'));
     }
 }

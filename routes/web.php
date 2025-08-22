@@ -41,7 +41,7 @@ Route::post('/allergies', [AllergyController::class, 'store']);
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
-Route::post('/ingredients', [IngredientController::class, 'store']);
+Route::get('/ingredient/{recipe}', [IngredientController::class, 'indexView'])->name('ingredient');
 Route::get('/ingredients/show', [IngredientController::class, 'show']);
 
 //////////////////////////////////////////////////
