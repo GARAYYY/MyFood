@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Register - MyFood</title>
@@ -12,7 +13,7 @@
         }
 
         .login {
-            background-image: url('{{ asset('public/images/login.jpg') }}');
+            background-image: url('https://api.myfood.click/images/login.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -33,7 +34,8 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
         }
 
-        h1, p {
+        h1,
+        p {
             text-align: center;
         }
 
@@ -64,7 +66,7 @@
             text-decoration: none;
         }
 
-        .terms input{
+        .terms input {
             width: auto;
             margin-right: 0.5rem;
         }
@@ -119,69 +121,72 @@
         }
 
         /* Estados seleccionados */
-        #skill-beginner:checked + label.radio-box,
-        #skill-intermediate:checked + label.radio-box,
-        #skill-expert:checked + label.radio-box,
-        #diet-none:checked + label.radio-box,
-        #diet-vegetarian:checked + label.radio-box,
-        #diet-vegan:checked + label.radio-box,
-        #diet-lowcarb:checked + label.radio-box {
+        #skill-beginner:checked+label.radio-box,
+        #skill-intermediate:checked+label.radio-box,
+        #skill-expert:checked+label.radio-box,
+        #diet-none:checked+label.radio-box,
+        #diet-vegetarian:checked+label.radio-box,
+        #diet-vegan:checked+label.radio-box,
+        #diet-lowcarb:checked+label.radio-box {
             background: #40798c65;
             color: #fff;
             border-color: #40798c65;
         }
     </style>
 </head>
+
 <body>
-<div class="login">
-    <div class="panel">
-        <h1>Register</h1>
-        <p>Welcome to MyFood</p>
+    <div class="login">
+        <div class="panel">
+            <h1>Register</h1>
+            <p>Welcome to MyFood</p>
 
-        <form method="POST" action="{{ url('public/index.php/api/register') }}">
-            @csrf
+            <form method="POST" action="https://api.myfood.click/api/register">
+                @csrf
 
-            <input type="text" name="name" placeholder="Name" required/>
-            <input type="email" name="email" placeholder="Email" required/>
-            <input type="password" name="password" placeholder="Password" required/>
+                <input type="text" name="name" placeholder="Name" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="password" placeholder="Password" required />
 
-            <div class="radio-group">
-                <input id="skill-beginner" type="radio" name="cooking_skill" value="Beginner" checked>
-                <label for="skill-beginner" class="radio-box">Beginner</label>
+                <div class="radio-group">
+                    <input id="skill-beginner" type="radio" name="cooking_skill" value="Beginner" checked>
+                    <label for="skill-beginner" class="radio-box">Beginner</label>
 
-                <input id="skill-intermediate" type="radio" name="cooking_skill" value="Intermediate">
-                <label for="skill-intermediate" class="radio-box">Intermediate</label>
+                    <input id="skill-intermediate" type="radio" name="cooking_skill" value="Intermediate">
+                    <label for="skill-intermediate" class="radio-box">Intermediate</label>
 
-                <input id="skill-expert" type="radio" name="cooking_skill" value="Expert">
-                <label for="skill-expert" class="radio-box">Expert</label>
-            </div>
+                    <input id="skill-expert" type="radio" name="cooking_skill" value="Expert">
+                    <label for="skill-expert" class="radio-box">Expert</label>
+                </div>
 
-            <div class="radio-group">
-                <input id="diet-none" type="radio" name="diet_type" value="None" checked>
-                <label for="diet-none" class="radio-box">None</label>
+                <div class="radio-group">
+                    <input id="diet-none" type="radio" name="diet_type" value="None" checked>
+                    <label for="diet-none" class="radio-box">None</label>
 
-                <input id="diet-vegetarian" type="radio" name="diet_type" value="Vegetarian">
-                <label for="diet-vegetarian" class="radio-box">Vegetarian</label>
+                    <input id="diet-vegetarian" type="radio" name="diet_type" value="Vegetarian">
+                    <label for="diet-vegetarian" class="radio-box">Vegetarian</label>
 
-                <input id="diet-vegan" type="radio" name="diet_type" value="Vegan">
-                <label for="diet-vegan" class="radio-box">Vegan</label>
+                    <input id="diet-vegan" type="radio" name="diet_type" value="Vegan">
+                    <label for="diet-vegan" class="radio-box">Vegan</label>
 
-                <input id="diet-lowcarb" type="radio" name="diet_type" value="LowCarb">
-                <label for="diet-lowcarb" class="radio-box">LowCarb</label>
-            </div>
+                    <input id="diet-lowcarb" type="radio" name="diet_type" value="LowCarb">
+                    <label for="diet-lowcarb" class="radio-box">LowCarb</label>
+                </div>
 
-            <div class="terms">
-                <input type="checkbox" id="terms" name="terms" required/>
-                <label for="terms">
-                    I agree to the <a href="/public/docs/Terms_of_Use_and_Conditions.pdf" target="_blank">Terms of Use</a>
-                    and <a href="/public/docs/Legal_Notice_and_Disclaimer.pdf" target="_blank">Legal Notice</a>
-                </label>
-            </div>
+                <div class="terms">
+                    <input type="checkbox" id="terms" name="terms" required />
+                    <label for="terms">
+                        I agree to the <a href="/public/docs/Terms_of_Use_and_Conditions.pdf" target="_blank">Terms of
+                            Use</a>
+                        and <a href="/public/docs/Legal_Notice_and_Disclaimer.pdf" target="_blank">Legal Notice</a>
+                    </label>
+                </div>
 
-            <button type="submit">Register</button>
-            <a href="{{ url('/') }}"><button type="button">Login</button></a>
-        </form>
+                <button type="submit">Register</button>
+                <a href="{{ url('/') }}"><button type="button">Login</button></a>
+            </form>
+        </div>
     </div>
-</div>
 </body>
+
 </html>

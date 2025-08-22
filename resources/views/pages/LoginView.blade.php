@@ -12,7 +12,7 @@
         }
 
         .login {
-            background-image: url('{{ asset('public/images/login.jpg') }}');
+            background-image: url('https://api.myfood.click/images/login.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -118,7 +118,7 @@
         <div class="panel">
             <h1>Sign In</h1>
             <p>Welcome to MyFood</p>
-            <form method="POST" action="{{ url('public/index.php/api/login') }}">
+            <form method="POST" action="https://api.myfood.click/api/login">
                 @csrf
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
