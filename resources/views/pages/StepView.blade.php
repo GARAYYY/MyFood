@@ -5,10 +5,10 @@
 <h1 class="form-title">Add Recipe Instructions</h1>
 
 @php
-    $recipeId = session('recipe_id'); // O el método que uses para guardar el ID de la receta
+    $recipeId = session('recipe_id');
 @endphp
 
-<form action="{{ url('/instructions.store') }}" method="POST">
+<form action="{{ url('/instructions/store') }}" method="POST">
     @csrf
     <input type="hidden" name="recipe_id" value="{{ $recipeId }}">
     <div id="steps-container">

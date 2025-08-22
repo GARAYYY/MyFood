@@ -5,9 +5,8 @@
 <h1 class="form-title">Select Ingredients</h1>
 
 @php
-    // Traemos todos los ingredientes desde la DB
     $ingredients = \App\Models\Ingredient::all();
-    $recipeId = session('recipe_id'); // O el método que uses para guardar el ID
+    $recipeId = session('recipe_id');
 @endphp
 
 <form action="{{ url('/recipesxingredients') }}" method="POST">
