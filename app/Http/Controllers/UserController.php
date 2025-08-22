@@ -28,7 +28,7 @@ class UserController extends Controller
             'diet_type' => $validator['diet_type'] ?? null,
             'created_at' => now(),
         ]);
-        return response()->json($user, 201);
+        return redirect()->intended('/');
     }
     public function login(Request $request)
     {
