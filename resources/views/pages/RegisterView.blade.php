@@ -176,9 +176,9 @@
                 <div class="terms">
                     <input type="checkbox" id="terms" name="terms" required />
                     <label for="terms">
-                        I agree to the <a href="/public/docs/Terms_of_Use_and_Conditions.pdf" target="_blank">Terms of
+                        I agree to the <a href="/docs/Terms_of_Use_and_Conditions.pdf" target="_blank">Terms of
                             Use</a>
-                        and <a href="/public/docs/Legal_Notice_and_Disclaimer.pdf" target="_blank">Legal Notice</a>
+                        and <a href="/docs/Legal_Notice_and_Disclaimer.pdf" target="_blank">Legal Notice</a>
                     </label>
                 </div>
 
