@@ -1,6 +1,6 @@
 <!-- resources/views/pages/home.blade.php -->
 
-@include('components.header')
+@include('components.Header')
 
 <div class="cards-container">
     @foreach ($recipes as $item)
@@ -10,7 +10,7 @@
     @endforeach
 </div>
 
-@include('components.footer')
+@include('components.Footer')
 
 <style>
 .cards-container {
