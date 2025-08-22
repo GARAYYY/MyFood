@@ -138,15 +138,13 @@
         <h1>Register</h1>
         <p>Welcome to MyFood</p>
 
-        {{-- Formulario --}}
-        <form method="POST" action="{{ url('/api/register') }}">
+        <form method="POST" action="{{ url('index.php/api/register') }}">
             @csrf
 
             <input type="text" name="name" placeholder="Name" required/>
             <input type="email" name="email" placeholder="Email" required/>
             <input type="password" name="password" placeholder="Password" required/>
 
-            {{-- Cooking skill --}}
             <div class="radio-group">
                 <input id="skill-beginner" type="radio" name="cooking_skill" value="Beginner" checked>
                 <label for="skill-beginner" class="radio-box">Beginner</label>
@@ -158,7 +156,6 @@
                 <label for="skill-expert" class="radio-box">Expert</label>
             </div>
 
-            {{-- Diet type --}}
             <div class="radio-group">
                 <input id="diet-none" type="radio" name="diet_type" value="None" checked>
                 <label for="diet-none" class="radio-box">None</label>
@@ -173,7 +170,6 @@
                 <label for="diet-lowcarb" class="radio-box">LowCarb</label>
             </div>
 
-            {{-- Terms --}}
             <div class="terms">
                 <input type="checkbox" id="terms" name="terms" required/>
                 <label for="terms">
