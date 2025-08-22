@@ -31,9 +31,12 @@ Route::get('/newrecipe', function () {
 });
 
 Route::get('/ingredient', function () {
-    return view('pages.NewRecipeView');
+    return view('pages.IngredientView');
 });
 
+Route::get('/steps', function () {
+    return view('pages.StepView');
+});
 
 
 //////////////////////////////////////////////////

@@ -10,7 +10,7 @@ class InstructionController extends Controller
     public function stepView($recipeId)
     {
         session(['recipe_id' => $recipeId]); // Guardamos en sesión
-        return view('pages.AddInstructions', compact('recipeId'));
+        return view('pages.StepView', compact('recipeId'));
     }
     public function store(Request $request)
     {
