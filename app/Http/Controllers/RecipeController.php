@@ -36,12 +36,12 @@ class RecipeController extends Controller
         ]);
         return response()->json($recipe, 201);
     }
-    public function show()
+    public function indexView()
     {
-        $recipes = Recipe::all(); // Trae todas las recetas
+        $recipes = Recipe::all();
         return view('pages.homeView', compact('recipes'));
     }
-    public function showDetail($id)
+    public function detailView($id)
     {
         $recipe = Recipe::with(['ingredients', 'instructions', 'author'])
             ->findOrFail($id);
