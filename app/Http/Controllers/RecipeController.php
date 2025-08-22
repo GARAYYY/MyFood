@@ -39,7 +39,7 @@ class RecipeController extends Controller
     public function indexView()
     {
         $recipes = Recipe::all();
-        return view('pages.home-view',compact('recipes'));
+        return view('pages.HomeView',compact('recipes'));
     }
     public function showDetail($id)
 {
