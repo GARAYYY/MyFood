@@ -49,10 +49,7 @@ class UserController extends Controller
             );
         }
         $user = Auth::user();
-        return response()->json([
-            'acces_token' => $token,
-            'user' => $user,
-        ], 200);
+        return redirect()->session()->intended('/home');
     }
     public function show($id)
     {
