@@ -5,7 +5,7 @@
 <div class="cards-container">
     @foreach ($recipes as $item)
         <a href="{{ url('/recipe/detail/' . $item->recipe_id) }}" class="recipe-link">
-            @include('components.recipe', ['recipe' => $item])
+            @include('components.Recipe', ['recipe' => $item])
         </a>
     @endforeach
 </div>
