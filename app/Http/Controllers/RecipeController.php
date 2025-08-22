@@ -39,7 +39,7 @@ class RecipeController extends Controller
     public function show()
     {
         $recipes = Recipe::all(); // Trae todas las recetas
-        return view('pages.home', compact('recipes'));
+        return view('pages.homeView', compact('recipes'));
     }
     public function showDetail($id)
     {
