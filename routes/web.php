@@ -30,6 +30,11 @@ Route::get('/newrecipe', function () {
     return view('pages.NewRecipeView');
 });
 
+Route::get('/ingredient', function () {
+    return view('pages.NewRecipeView');
+});
+
+
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
 Route::post('/allergies', [AllergyController::class, 'store']);
