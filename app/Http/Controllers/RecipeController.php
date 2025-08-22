@@ -21,8 +21,12 @@ class RecipeController extends Controller
         ]);
         $imageUrl = null;
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('recipes', 'public');
-            $imageUrl = asset('storage/' . $path);
+            $file = $request->file('image');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(base_path('recipe_images'), $filename);
+            $imageUrl = '/recipe_images/' . $filename;
+        } else {
+            $imageUrl = null;
         }
         $recipe = Recipe::create([
             'title' => $validator['title'],
