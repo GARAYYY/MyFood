@@ -38,19 +38,12 @@ Route::get('/ingredient', function () {
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
-Route::get('/ingredient/{recipe}', [IngredientController::class, 'indexView'])->name('ingredient');
+Route::get('/ingredient/{recipe}', [IngredientController::class, 'ingredientView'])->name('ingredient.view');
 Route::get('/ingredients/show', [IngredientController::class, 'show']);
-
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
 Route::post('/recipes/store', action: [RecipeController::class, 'store']);
 Route::get('/home', [RecipeController::class, 'indexView'])->name('home');
-
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
-
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
-Route::post('/recipesxingredients', [RecipeXIngredientController::class, 'store']);
+Route::post('/recipesxingredients', [RecipeXIngredientController::class, 'store'])->name('recipesxingredients.store');
+Route::get('/step/{recipe}', [InstructionController::class, 'stepView'])->name('step.view');
+Route::post('/instructions', [InstructionController::class, 'store'])->name('instructions.store');

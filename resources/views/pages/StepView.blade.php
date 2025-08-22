@@ -8,7 +8,7 @@
     $recipeId = session('recipe_id'); // O el método que uses para guardar el ID de la receta
 @endphp
 
-<form action="{{ url('/instructions') }}" method="POST">
+<form action="{{ url('/instructions.store') }}" method="POST">
     @csrf
     <input type="hidden" name="recipe_id" value="{{ $recipeId }}">
     <div id="steps-container">

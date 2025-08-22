@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ingredient;
+use App\Models\Recipe;
 use Illuminate\Http\Request;
 
 class IngredientController extends Controller
@@ -14,9 +15,11 @@ class IngredientController extends Controller
         });
         return response()->json($ingredient, 200);
     }
-    public function indexView($recipe_id)
+    public function ingredientView($recipeId)
     {
+        $recipe = Recipe::findOrFail($recipeId);
         $ingredients = Ingredient::all();
-        return view('pages.IngredientView', compact('ingredients', 'recipe_id'));
+        session(['recipe_id' => $recipeId]);
+        return view('pages.IngredientView', compact('recipe', 'ingredients'));
     }
 }

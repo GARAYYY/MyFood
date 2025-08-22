@@ -34,11 +34,12 @@ class RecipeController extends Controller
             'created_by' => $validator['created_by'],
             'created_at' => now()
         ]);
-        return response()->json($recipe, 201);
+        session(['recipe_id' => $recipe->id]);
+        return redirect()->route('ingredient.view', ['recipe' => $recipe->id]);
     }
     public function indexView()
     {
         $recipes = Recipe::all();
-        return view('pages.HomeView',compact('recipes'));
+        return view('pages.HomeView', compact('recipes'));
     }
 }
