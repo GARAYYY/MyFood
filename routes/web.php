@@ -42,7 +42,7 @@ Route::post('/instructions', [InstructionController::class, 'store']);
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
 Route::post('/recipes/store', [RecipeController::class, 'store']);
-Route::get('/recipes/show', [RecipeController::class, 'show']);
+Route::get('/home', [RecipeController::class, 'indexView'])->name('home');
 Route::get('/recipes/detail/{id}', [RecipeController::class, 'showDetail']);
 
 //////////////////////////////////////////////////

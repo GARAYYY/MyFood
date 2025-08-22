@@ -50,7 +50,7 @@ class UserController extends Controller
             );
         }
         $user = Auth::user();
-        return redirect()->intended('/home');
+        return redirect()->route('home');
     }
     public function show($id)
     {
