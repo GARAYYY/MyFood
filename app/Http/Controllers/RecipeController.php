@@ -34,8 +34,8 @@ class RecipeController extends Controller
             'created_by' => $validator['created_by'],
             'created_at' => now()
         ]);
-        session(['recipe_id' => $recipe->id]);
-        return redirect()->route('ingredient.view', ['recipe' => $recipe->id]);
+        session(['recipe_id' => $recipe->recipe_id]);
+        return redirect()->route('ingredient.view', ['recipe' => $recipe->recipe_id]);
     }
     public function indexView()
     {
