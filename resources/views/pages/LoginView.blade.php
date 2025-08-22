@@ -12,7 +12,7 @@
         }
 
         .login {
-            background-image: url('{{ asset('images/login.jpg') }}');
+            background-image: url('https://myfood.click/public/images/login.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
