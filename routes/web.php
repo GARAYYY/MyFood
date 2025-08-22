@@ -22,6 +22,10 @@ Route::get('/register', function () {
     return view('pages.RegisterView');
 });
 
+Route::get('/home', function () {
+    return view('pages.HomeView');
+});
+
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
 Route::post('/allergies', [AllergyController::class, 'store']);
@@ -37,9 +41,9 @@ Route::post('/instructions', [InstructionController::class, 'store']);
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
-Route::get('/home', [RecipeController::class, 'indexView'])->name('home'); 
 Route::post('/recipes/store', [RecipeController::class, 'store']);
-Route::get('/recipes/detail/{id}', [RecipeController::class, 'detailView'])->name('recipedetail');
+Route::get('/recipes/show', [RecipeController::class, 'show']);
+Route::get('/recipes/detail/{id}', [RecipeController::class, 'showDetail']);
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////

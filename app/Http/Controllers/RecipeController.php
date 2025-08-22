@@ -38,13 +38,15 @@ class RecipeController extends Controller
     }
     public function indexView()
     {
-        $recipes = Recipe::all();
-        return view('pages.homeView', compact('recipes'));
+        $recipes = Recipe::all()->map(function ($recipe) {
+            return $recipe;
+        });
+        return response()->json($recipes, 200);
     }
-    public function detailView($id)
-    {
-        $recipe = Recipe::with(['ingredients', 'instructions', 'author'])
-            ->findOrFail($id);
-        return response()->json($recipe);
-    }
+    public function showDetail($id)
+{
+    $recipe = Recipe::with(['ingredients', 'instructions', 'author'])
+        ->findOrFail($id);
+    return response()->json($recipe);
+}
 }
