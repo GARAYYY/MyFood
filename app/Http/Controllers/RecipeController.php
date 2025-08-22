@@ -38,15 +38,13 @@ class RecipeController extends Controller
     }
     public function show()
     {
-        $recipes = Recipe::all()->map(function ($recipe) {
-            return $recipe;
-        });
-        return response()->json($recipes, 200);
+        $recipes = Recipe::all(); // Trae todas las recetas
+        return view('pages.home', compact('recipes'));
     }
     public function showDetail($id)
-{
-    $recipe = Recipe::with(['ingredients', 'instructions', 'author'])
-        ->findOrFail($id);
-    return response()->json($recipe);
-}
+    {
+        $recipe = Recipe::with(['ingredients', 'instructions', 'author'])
+            ->findOrFail($id);
+        return response()->json($recipe);
+    }
 }
