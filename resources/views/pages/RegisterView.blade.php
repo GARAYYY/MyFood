@@ -141,7 +141,7 @@
             <h1>Register</h1>
             <p>Welcome to MyFood</p>
 
-            <form method="POST" action="{{ url('/register') }}">
+            <form method="POST" action="{{ url('/api/register') }}">
                 @csrf
 
                 <input type="text" name="name" placeholder="Name" required />
