@@ -119,7 +119,6 @@
             <h1>Sign In</h1>
             <p>Welcome to MyFood</p>
             <form method="POST" action="{{ url('/login') }}">
-                @csrf
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
                 <div class="bottones">
