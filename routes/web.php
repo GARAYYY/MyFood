@@ -15,15 +15,15 @@ use App\Models\UserXAllergy;
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
 Route::get('/', function () {
-    return view('pages.loginView');
+    return view('pages.LoginView');
 });
 
 Route::get('/register', function () {
-    return view('pages.registerView');
+    return view('pages.RegisterView');
 });
 
 Route::get('/home', function () {
-    return view('pages.homeView');
+    return view('pages.HomeView');
 });
 
 //////////////////////////////////////////////////
