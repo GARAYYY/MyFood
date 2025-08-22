@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Routing\Redirector;
 
 
 class UserController extends Controller
@@ -49,7 +50,7 @@ class UserController extends Controller
             );
         }
         $user = Auth::user();
-        return redirect()->session()->intended('/home');
+        return redirect()->intended('/home');
     }
     public function show($id)
     {
