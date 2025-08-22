@@ -26,6 +26,10 @@ Route::get('/home', function () {
     return view('pages.HomeView');
 });
 
+Route::get('/newrecipe', function () {
+    return view('pages.NewRecipeView');
+});
+
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
 Route::post('/allergies', [AllergyController::class, 'store']);
