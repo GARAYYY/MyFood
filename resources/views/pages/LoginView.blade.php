@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - MyFood</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
         * {
             margin: 0;
@@ -13,7 +12,7 @@
         }
 
         .login {
-            background-image: url("{{ asset('images/login.jpg') }}");
+            background-image: url('{{ asset('images/login.jpg') }}');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
