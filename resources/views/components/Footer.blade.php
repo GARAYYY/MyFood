@@ -1,5 +1,3 @@
-<!-- resources/views/components/footer.blade.php -->
-
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 
 <div class="footer">

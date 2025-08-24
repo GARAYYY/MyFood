@@ -1,5 +1,3 @@
-<!-- resources/views/components/recipe.blade.php -->
-
 <div class="card">
     @php
         $user = auth()->user();

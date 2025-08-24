@@ -1,5 +1,3 @@
-<!-- resources/views/pages/AddInstructions.blade.php -->
-
 @include('components.Header')
 
 <h1 class="form-title">Add Recipe Instructions</h1>

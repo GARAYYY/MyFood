@@ -1,5 +1,3 @@
-<!-- resources/views/pages/SelectIngredients.blade.php -->
-
 @include('components.Header')
 
 <h1 class="form-title">Select Ingredients</h1>

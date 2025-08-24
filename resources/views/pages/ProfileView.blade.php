@@ -1,5 +1,3 @@
-<!-- resources/views/pages/ProfileView.blade.php -->
-
 @include('components.Header')
 
 @php

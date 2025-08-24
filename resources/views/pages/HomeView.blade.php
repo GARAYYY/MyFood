@@ -1,5 +1,3 @@
-<!-- resources/views/pages/home.blade.php -->
-
 @include('components.Header')
 
 <div class="cards-container">

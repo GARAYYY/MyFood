@@ -1,5 +1,3 @@
-<!-- resources/views/pages/NewRecipe.blade.php -->
-
 @include('components.Header')
 
 <h1 class="form-title">New Recipe</h1>
