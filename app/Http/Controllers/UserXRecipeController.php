@@ -26,10 +26,10 @@ class UserXRecipeController extends Controller
     }
     public function showFavorites()
     {
-        $userId = Auth::id(); // Usuario logueado
+        $userId = Auth::id();
         $favoriteRecipes = Recipe::whereIn('recipe_id', function ($query) use ($userId) {
             $query->select('recipe_id')
-                ->from('user_x_recipes')
+                ->from('usersxrecipes')
                 ->where('user_id', $userId);
         })->get();
         return view('pages.MyList', ['recipes' => $favoriteRecipes]);
