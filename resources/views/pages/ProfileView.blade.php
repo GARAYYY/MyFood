@@ -159,6 +159,11 @@
         flex: 3;
     }
 
+    .user-recipes a {
+    text-decoration: none;
+    color: inherit;
+}
+
     .user-recipes h2 {
         margin-bottom: 1rem;
     }
