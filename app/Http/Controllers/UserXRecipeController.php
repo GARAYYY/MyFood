@@ -32,6 +32,6 @@ class UserXRecipeController extends Controller
                 ->from('user_x_recipes')
                 ->where('user_id', $userId);
         })->get();
-        return view('pages.FavoritesView', ['recipes' => $favoriteRecipes]);
+        return view('pages.MyList', ['recipes' => $favoriteRecipes]);
     }
 }

@@ -42,8 +42,6 @@ Route::get('/steps', function () {
     return view('pages.StepView');
 });
 
-Route::get('/favorites', [UserXRecipeController::class, 'showFavorites'])->name('favorites.view');
-
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
@@ -58,3 +56,4 @@ Route::get('/step/{recipe}', [InstructionController::class, 'stepView'])->name('
 Route::post('/instructions/store', [InstructionController::class, 'store'])->name('instructions.store');
 Route::post('/favorites/store', [UserXRecipeController::class, 'store'])->name('favorites.store');
 Route::get('/recipe/{id}', [RecipeController::class, 'detail'])->name('recipe.detail');
+Route::get('/favorites', [UserXRecipeController::class, 'showFavorites'])->name('favorites.view');
