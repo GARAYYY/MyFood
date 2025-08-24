@@ -23,4 +23,13 @@ class UserXRecipeController extends Controller
         }
         return redirect()->back()->with('success', 'Recipe added to favorites!');
     }
+    public function showFavorites()
+    {
+        $user = auth()->user();
+        if (!$user) {
+            return redirect('/')->with('error', 'Debes iniciar sesión.');
+        }
+        $recipes = $user->favorites()->get();
+        return view('pages.FavoritesView', compact('recipes'));
+    }
 }
