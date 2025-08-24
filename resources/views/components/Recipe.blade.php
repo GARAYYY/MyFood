@@ -28,7 +28,9 @@
                 <form action="{{ route('favorites.store') }}" method="POST" style="display:inline;">
                     @csrf
                     <input type="hidden" name="recipe_id" value="{{ $recipe->recipe_id }}">
-                    <button type="submit" class="favorite-btn">❤️ Add to Favorites</button>
+                    <button type="submit" class="favorite-btn">
+                        <img src="{{ asset('images/favourites.png') }}" alt="Add to Favorites" class="favorite-icon">
+                    </button>
                 </form>
             @endif
         </small>
