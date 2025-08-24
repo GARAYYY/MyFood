@@ -14,7 +14,7 @@
         </div>
         <small class="card-date">
             Created: {{ \Carbon\Carbon::parse($recipe->created_at)->format('d/m/Y') }}
-            @if($user && !$isFavorite)
+            @if(auth()->check() && !$isFavorite)
                 <form action="{{ route('favorites.store') }}" method="POST" style="display:inline;">
                     @csrf
                     <input type="hidden" name="recipe_id" value="{{ $recipe->recipe_id }}">
