@@ -52,14 +52,14 @@ class UserController extends Controller
         $user = Auth::user();
         return redirect()->route('home');
     }
-    public function show($id)
+    public function show()
     {
-        $user = User::with('recipes')->findOrFail($id);
+        $user = auth()->user()->load('recipes');
         return view('pages.ProfileView', compact('user'));
     }
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        $user = Auth::user();
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
