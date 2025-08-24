@@ -1,6 +1,16 @@
 <!-- resources/views/components/recipe.blade.php -->
 
 <div class="card">
+    @php
+        $user = auth()->user();
+        $isFavorite = false;
+
+        if ($user) {
+            $isFavorite = \App\Models\UserXRecipe::where('user_id', $user->user_id)
+                ->where('recipe_id', $recipe->recipe_id)
+                ->exists();
+        }
+    @endphp
     @if(!empty($recipe->image_url))
         <img src="{{ $recipe->image_url }}" alt="{{ $recipe->title }}" class="card-img" />
     @endif
