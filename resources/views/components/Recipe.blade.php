@@ -14,64 +14,79 @@
         </div>
         <small class="card-date">
             Created: {{ \Carbon\Carbon::parse($recipe->created_at)->format('d/m/Y') }}
-            <!-- Botón de favoritos eliminado, puede agregarse con un formulario POST si se desea -->
+            @if($user && !$isFavorite)
+                <form action="{{ route('favorites.store') }}" method="POST" style="display:inline;">
+                    @csrf
+                    <input type="hidden" name="recipe_id" value="{{ $recipe->recipe_id }}">
+                    <button type="submit" class="favorite-btn">❤️ Add to Favorites</button>
+                </form>
+            @endif
         </small>
     </div>
 </div>
 
 <style>
-.card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    background: #E2F3E9;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    font-family: "Century Gothic", sans-serif;
-}
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #E2F3E9;
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        font-family: "Century Gothic", sans-serif;
+    }
 
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
 
-.card-img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-}
+    .card-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+    }
 
-.card-body {
-    padding: 1rem;
-    background-color: #E2F3E9;
-}
+    .card-body {
+        padding: 1rem;
+        background-color: #E2F3E9;
+    }
 
-.card-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-}
+    .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
 
-.card-description {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
+    .card-description {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
 
-.card-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    font-size: 0.9rem;
-    color: #555;
-}
+    .card-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        font-size: 0.9rem;
+        color: #555;
+    }
 
-.card-date {
-    display: flex;
-    margin-top: 0.8rem;
-    font-size: 0.8rem;
-    color: #777;
-    justify-content: space-between;
-}
+    .card-date {
+        display: flex;
+        margin-top: 0.8rem;
+        font-size: 0.8rem;
+        color: #777;
+        justify-content: space-between;
+    }
+
+    .favorite-btn {
+        background: transparent;
+        border: none;
+        color: red;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-left: 10px;
+    }
 </style>

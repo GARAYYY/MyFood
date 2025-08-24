@@ -50,3 +50,4 @@ Route::post('/login', [UserController::class, 'login']);
 Route::post('/recipesxingredients', [RecipeXIngredientController::class, 'store'])->name('recipesxingredients.store');
 Route::get('/step/{recipe}', [InstructionController::class, 'stepView'])->name('step.view');
 Route::post('/instructions/store', [InstructionController::class, 'store'])->name('instructions.store');
+Route::post('/favorites', [UserXRecipeController::class, 'store'])->name('favorites.store');
