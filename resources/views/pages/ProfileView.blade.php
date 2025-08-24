@@ -71,7 +71,7 @@
             <div class="recipes-list">
                 @foreach($recipes as $recipe)
                     <a href="{{ route('recipe.detail', ['id' => $recipe->recipe_id]) }}">
-                        @include('components.recipe', ['recipe' => $recipe])
+                        @include('components.Recipe', ['recipe' => $recipe])
                     </a>
                 @endforeach
             </div>
