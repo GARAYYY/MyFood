@@ -29,7 +29,7 @@
                     @csrf
                     <input type="hidden" name="recipe_id" value="{{ $recipe->recipe_id }}">
                     <button type="submit" class="favorite-btn">
-                        <img src="{{ asset('images/favourites.png') }}" alt="Add to Favorites" class="favorite-icon">
+                        <img src="{{ asset('images/favorites.png') }}" alt="Add to Favorites" class="favorite-icon">
                     </button>
                 </form>
             @endif

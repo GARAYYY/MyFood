@@ -38,9 +38,6 @@ Route::get('/steps', function () {
     return view('pages.StepView');
 });
 
-Route::get('/steps', function () {
-    return view('pages.StepView');
-});
 
 
 //////////////////////////////////////////////////
