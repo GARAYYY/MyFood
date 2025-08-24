@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UserXRecipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Recipe;
 
 class UserXRecipeController extends Controller
 {
@@ -25,11 +26,12 @@ class UserXRecipeController extends Controller
     }
     public function showFavorites()
     {
-        $user = auth()->user();
-        if (!$user) {
-            return redirect('/')->with('error', 'Debes iniciar sesión.');
-        }
-        $recipes = $user->favorites()->get();
-        return view('pages.FavoritesView', compact('recipes'));
+        $userId = Auth::id(); // Usuario logueado
+        $favoriteRecipes = Recipe::whereIn('recipe_id', function ($query) use ($userId) {
+            $query->select('recipe_id')
+                ->from('user_x_recipes')
+                ->where('user_id', $userId);
+        })->get();
+        return view('pages.FavoritesView', ['recipes' => $favoriteRecipes]);
     }
 }

@@ -42,9 +42,7 @@ Route::get('/steps', function () {
     return view('pages.StepView');
 });
 
-Route::get('/favourites', function () {
-    return view('pages.MyList');
-});
+Route::get('/favorites', [UserXRecipeController::class, 'showFavorites'])->name('favorites.view');
 
 
 //////////////////////////////////////////////////
