@@ -52,5 +52,29 @@ class UserController extends Controller
         $user = Auth::user();
         return redirect()->route('home');
     }
-
+    public function show($id)
+    {
+        $user = User::with('recipes')->findOrFail($id);
+        return view('pages.ProfileView', compact('user'));
+    }
+    public function update(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:6|confirmed',
+            'cooking_skill' => 'required|string',
+            'diet_type' => 'required|string',
+        ]);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->cooking_skill = $request->cooking_skill;
+        $user->diet_type = $request->diet_type;
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        return redirect()->back()->with('success', 'Profile updated successfully!');
+    }
 }
