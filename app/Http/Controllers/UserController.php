@@ -32,18 +32,25 @@ class UserController extends Controller
     }
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            // Regenera la sesión para evitar fixation
-            $request->session()->regenerate();
-
-            return redirect()->route('home');
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|string',
         ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+        $credentials = $request->only('email', 'password');
+        $token = Auth::attempt($credentials);
+        if (!$token) {
+            return response()->json(
+                [
+                    'error' => 'Wrong credentials',
+                ],
+                401
+            );
+        }
+        $user = Auth::user();
+        return redirect()->route('home');
     }
 
 }
