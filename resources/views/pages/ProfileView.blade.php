@@ -169,7 +169,7 @@
     .recipes-list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 2rem;
+        gap: 5rem;
     }
 
     .empty-msg {
