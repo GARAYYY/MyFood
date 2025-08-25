@@ -52,4 +52,8 @@
     text-decoration: none;
     color: inherit;
 }
+
+.cards-container a{
+    width: 350px;
+}
 </style>

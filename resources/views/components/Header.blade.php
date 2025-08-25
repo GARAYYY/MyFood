@@ -6,7 +6,7 @@
     <ul>
         <li><a href="{{ url('/home') }}">Home</a></li>
         <li><a href="{{ url('/favorites') }}">My list</a></li>
-        <li><a href="{{ url('/newrecipe') }}">Add receipt</a></li>
+        <li><a href="{{ url('/newrecipe') }}">Add recipe</a></li>
         <li><a href="{{ url('/profile') }}">Profile</a></li>
         @if(Auth::check() && Auth::user()->role == 1)
             <li><a href="{{ route('emails.view') }}">Send Emails</a></li>
