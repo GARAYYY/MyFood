@@ -34,4 +34,12 @@ class UserXRecipeController extends Controller
         })->get();
         return view('pages.MyList', ['recipes' => $favoriteRecipes]);
     }
+    public function destroy(Request $request, $recipe_id)
+    {
+        $userId = Auth::id();
+        UserXRecipe::where('user_id', $userId)
+            ->where('recipe_id', $recipe_id)
+            ->delete();
+        return redirect()->back()->with('success', 'Recipe removed from favorites!');
+    }
 }

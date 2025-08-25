@@ -30,6 +30,14 @@
                         <img src="{{ asset('images/favorites.png') }}" alt="Add to Favorites" class="favorite-icon">
                     </button>
                 </form>
+            @elseif($isFavorite)
+                <form action="{{ route('favorites.destroy', ['recipe_id' => $recipe->recipe_id]) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="favorite-btn">
+                        <img src="{{ asset('images/favorited.png') }}" alt="Remove from Favorites" class="favorite-icon">
+                    </button>
+                </form>
             @endif
         </small>
     </div>
