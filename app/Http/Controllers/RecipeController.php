@@ -46,4 +46,14 @@ class RecipeController extends Controller
         $recipes = Recipe::all();
         return view('pages.HomeView', compact('recipes'));
     }
+    public function detail($id)
+    {
+        $recipe = Recipe::with([
+            'author',
+            'ingredients',
+            'instructions'
+        ])->findOrFail($id);
+
+        return view('pages.RecipeDetailView', compact('recipe'));
+    }
 }
