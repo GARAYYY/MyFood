@@ -176,15 +176,4 @@
         font-style: italic;
         color: #666;
     }
-    
-    .recipes-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 2rem;
-    align-items: start; /* Esto evita que los elementos más bajos solapen a los de arriba */
-}
-
-.user-recipes a {
-    display: block; /* Asegura que el link ocupe todo el Recipe */
-}
 </style>
