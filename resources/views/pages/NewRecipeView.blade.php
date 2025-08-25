@@ -189,7 +189,7 @@
 
         input,
         button {
-            font-size: 24px;
+            font-size: 0.95rem;
             padding: 0.5rem;
         }
 

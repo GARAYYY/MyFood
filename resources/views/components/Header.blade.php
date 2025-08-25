@@ -64,4 +64,13 @@
         box-shadow: 5px 5px 10px black;
     }
 
+    @media (max-width: 600px) {
+
+        input,
+        textarea,
+        select,
+        button {
+            font-size: 16px;
+        }
+    }
 </style>
