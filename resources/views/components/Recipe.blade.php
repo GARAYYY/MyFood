@@ -55,7 +55,7 @@
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         font-family: "Century Gothic", sans-serif;
         min-height: 385px;
-        margin: 0 5rem;
+        gap: 5rem;
     }
 
     .card:hover {
