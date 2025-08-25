@@ -96,7 +96,8 @@ class UserController extends Controller
         }
         return back()->with('success', 'Correos enviados a todos los usuarios.');
     }
-    public function showSendEmailForm() {
-    return view('pages.SendMailView');
-}
+    public function showSendEmailForm()
+    {
+        return view('pages.SendMailView');
+    }
 }
