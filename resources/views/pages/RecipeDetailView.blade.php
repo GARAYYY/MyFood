@@ -72,6 +72,7 @@
             border-left: 4px solid black;
             border-radius: 8px;
             padding: 1rem;
+            background: #f7f9fa;
         }
 
         .instructions {
