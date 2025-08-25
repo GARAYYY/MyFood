@@ -56,7 +56,7 @@
         font-family: "Century Gothic", sans-serif;
         min-height: 500px;
         max-height: 500px;
-        gap: 5rem;
+        gap: 1rem;
     }
 
     .card:hover {
