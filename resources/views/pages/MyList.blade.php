@@ -22,11 +22,31 @@
         justify-content: center;
         gap: 1rem;
         padding: 0 3rem;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .cards-container>* {
+    .recipe-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
         flex: 1 1 calc(33.333% - 1rem);
         max-width: calc(33.333% - 1rem);
+    }
+
+    @media (max-width: 992px) {
+        .recipe-link {
+            flex: 1 1 calc(50% - 1rem);
+            max-width: calc(50% - 1rem);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .recipe-link {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
     }
 
     .floating-add {
@@ -55,5 +75,6 @@
     .recipe-link {
         text-decoration: none;
         color: inherit;
+        width: fit-content;
     }
 </style>
