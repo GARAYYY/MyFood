@@ -2,7 +2,6 @@
     @php
         $user = auth()->user();
         $isFavorite = false;
-
         if ($user) {
             $isFavorite = \App\Models\UserXRecipe::where('user_id', $user->user_id)
                 ->where('recipe_id', $recipe->recipe_id)
@@ -55,6 +54,8 @@
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         font-family: "Century Gothic", sans-serif;
+        min-height: 385px;
+        margin: 0 5rem;
     }
 
     .card:hover {
