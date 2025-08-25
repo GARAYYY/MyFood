@@ -97,4 +97,41 @@ button {
     font-weight: bold;
     cursor: pointer;
 }
+
+@media (max-width: 992px) {
+    .form {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .ingredients-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .ingredient-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .quantity-input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .form {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .ingredient-row {
+        gap: 0.5rem;
+    }
+
+    .button-container button {
+        width: 100%;
+        padding: 1rem;
+    }
+}
 </style>
