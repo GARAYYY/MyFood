@@ -135,6 +135,7 @@
 <body>
     <div class="login">
         <div class="panel">
+            <img src="{{ asset('images/logo.png') }}" alt="Food Icon">
             <h1>Sign In</h1>
             <p>Welcome to MyFood</p>
             <form method="POST" action="{{ url('/login') }}">
@@ -148,7 +149,6 @@
                     </a>
                 </div>
             </form>
-            <img src="{{ asset('images/logo.png') }}" alt="Food Icon">
         </div>
     </div>
 </body>
