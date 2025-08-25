@@ -17,20 +17,16 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
-        padding: 0 1rem;
+        padding: 0 3rem;
     }
 
-    /* Cada card ocupa 3 columnas en pantallas grandes */
     .cards-container>a {
-        flex: 1 1 calc(33.333% - 1rem);
-        max-width: calc(33.333% - 1rem);
+        width: fit-content;
         text-decoration: none;
         color: inherit;
         display: block;
-        /* asegura que el enlace envuelva la card entera */
     }
 
-    /* Tablet: 2 columnas */
     @media (max-width: 992px) {
         .cards-container>a {
             flex: 1 1 calc(50% - 1rem);
@@ -38,7 +34,6 @@
         }
     }
 
-    /* Móvil: 1 columna */
     @media (max-width: 600px) {
         .cards-container>a {
             flex: 1 1 100%;
