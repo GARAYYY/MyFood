@@ -1,15 +1,11 @@
 @include('components.Header')
 
 <div class="cards-container">
-    @if($recipes->isEmpty())
-        <p>No tienes recetas todavía.</p>
-    @else
-        @foreach ($recipes as $item)
-            <a href="{{ url('/recipe/detail/' . $item->recipe_id) }}" class="recipe-link">
-                @include('components.Recipe', ['recipe' => $item])
-            </a>
-        @endforeach
-    @endif
+    @foreach ($recipes as $item)
+        <a href="{{ url('/recipe/detail/' . $item->recipe_id) }}" class="recipe-link">
+            @include('components.Recipe', ['recipe' => $item])
+        </a>
+    @endforeach
 </div>
 
 @include('components.Footer')
@@ -24,22 +20,22 @@
         padding: 0 3rem;
     }
 
-    .recipe-link {
+    .cards-container>a {
+        width: fit-content;
         text-decoration: none;
         color: inherit;
-        width: fit-content;
         display: block;
     }
 
     @media (max-width: 992px) {
-        .recipe-link {
+        .cards-container>a {
             flex: 1 1 calc(50% - 1rem);
             max-width: calc(50% - 1rem);
         }
     }
 
     @media (max-width: 600px) {
-        .recipe-link {
+        .cards-container>a {
             flex: 1 1 100%;
             max-width: 100%;
         }
