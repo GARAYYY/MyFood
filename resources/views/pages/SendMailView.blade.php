@@ -9,7 +9,7 @@
         </div>
     @endif
 
-    <form action="{{ route('send.emails.post') }}" method="POST">
+    <form action="{{ route('emails.send') }}" method="POST">
         @csrf
 
         <label for="subject">Título:</label>
