@@ -28,6 +28,13 @@
         max-width: calc(33.333% - 1rem);
     }
 
+    @media (max-width: 992px) {
+        .recipe-link {
+            flex: 1 1 calc(50% - 1rem);
+            max-width: calc(50% - 1rem);
+        }
+    }
+
     @media (max-width: 480px) {
         .cards-container {
             flex-direction: column;
