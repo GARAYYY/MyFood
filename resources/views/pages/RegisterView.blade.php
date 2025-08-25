@@ -66,7 +66,7 @@
             padding: 0.6rem;
             border-radius: 6px;
             border: none;
-            background-color: rgba(255, 255, 255, 0.55);
+            background-color: rgba(255, 255, 255, 0.65);
             font-size: 1rem;
         }
 
@@ -105,7 +105,6 @@
             background: #305c6a;
         }
 
-        /* Radios en fila */
         .radio-group {
             display: flex;
             flex-wrap: wrap;
@@ -137,14 +136,12 @@
             margin-left: -1px;
         }
 
-        /* Estado seleccionado */
         input[type="radio"]:checked+label.radio-box {
             background: #40798c85;
             color: #fff;
             border-color: #40798c;
         }
 
-        /* 📱 Ajustes en móviles */
         @media (max-width: 768px) {
             .panel {
                 width: 90%;
@@ -174,7 +171,7 @@
             }
 
             .radio-box {
-                flex: 1 1 100%; /* 🔥 En móviles cada opción ocupa toda la fila */
+                flex: 1 1 100%;
                 margin: 2px 0 !important;
             }
         }

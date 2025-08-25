@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 🔥 Esto hace que sea 100% responsivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - MyFood</title>
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png">
     <style>
