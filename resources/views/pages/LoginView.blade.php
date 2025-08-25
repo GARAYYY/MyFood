@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - MyFood</title>
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png">
     <style>
         * {
             margin: 0;

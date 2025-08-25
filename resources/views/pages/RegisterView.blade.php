@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Register - MyFood</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png">
     <style>
         * {
             margin: 0;
@@ -33,12 +34,14 @@
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
             position: relative;
-            min-height: 500px; /* más alto para dar espacio */
+            min-height: 500px;
+            /* más alto para dar espacio */
         }
 
         .panel img {
             position: absolute;
-            top: -60px; /* sobresale por arriba */
+            top: -60px;
+            /* sobresale por arriba */
             left: 50%;
             transform: translateX(-50%);
             width: 120px;
@@ -51,7 +54,8 @@
         }
 
         h1 {
-            margin-top: 4rem; /* deja espacio porque la imagen pisa arriba */
+            margin-top: 4rem;
+            /* deja espacio porque la imagen pisa arriba */
         }
 
         input {
