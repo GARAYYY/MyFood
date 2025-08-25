@@ -32,12 +32,13 @@
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
             position: relative;
-            min-height: 520px; /* más alto para dar espacio */
+            min-height: 400px;
         }
 
         h1 {
             text-align: center;
             font-size: 1.8rem;
+            margin-top: 4rem;
         }
 
         p {
@@ -67,10 +68,9 @@
             margin-bottom: 1rem;
         }
 
-        /* Imagen decorativa que sobresale por ARRIBA */
         .panel img {
             position: absolute;
-            top: -60px; /* sobresale hacia arriba */
+            top: -60px;
             left: 50%;
             transform: translateX(-50%);
             width: 120px;
