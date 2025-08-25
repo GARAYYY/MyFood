@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 🔥 Esto hace que sea 100% responsivo -->
     <title>Login - MyFood</title>
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png">
     <style>
@@ -10,6 +11,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Century Gothic", sans-serif;
         }
 
         .login {
@@ -25,7 +30,7 @@
         }
 
         .panel {
-            width: 50%;
+            width: 100%;
             max-width: 420px;
             background-color: #ffffff50;
             color: white;
@@ -33,7 +38,16 @@
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
             position: relative;
-            min-height: 400px; 
+            min-height: 400px;
+        }
+
+        .panel img {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: auto;
         }
 
         h1 {
@@ -50,14 +64,23 @@
         input {
             display: block;
             width: 100%;
-            margin: 1rem 0;
-            padding: 0.5rem;
+            margin: 0.8rem 0;
+            padding: 0.6rem;
             border-radius: 6px;
             border: none;
-            background-color: rgba(255, 255, 255, 0.493);
+            background-color: rgba(255, 255, 255, 0.65);
+            font-size: 1rem;
         }
 
-        button {
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            margin-top: 1rem;
+        }
+
+        button,
+        .btn-link {
             width: 100%;
             padding: 0.7rem;
             border-radius: 6px;
@@ -66,73 +89,38 @@
             color: white;
             font-weight: bold;
             cursor: pointer;
-            margin-bottom: 1rem;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            display: block;
         }
 
-        .panel img {
-            position: absolute;
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: auto;
-        }
-
-        @media (max-width: 768px) {
-            .panel {
-                width: 90%;
-                padding: 1.5rem;
-                min-height: 460px;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            p {
-                font-size: 0.9rem;
-            }
-
-            button {
-                padding: 0.6rem;
-                font-size: 0.95rem;
-            }
-
-            .panel img {
-                width: 100px;
-                top: -50px;
-            }
+        button:hover,
+        .btn-link:hover {
+            background: #305c6a;
         }
 
         @media (max-width: 480px) {
             .panel {
-                width: 100%;
-                padding: 1rem;
+                padding: 1.5rem;
                 border-radius: 8px;
-                min-height: 420px;
-            }
-
-            h1 {
-                font-size: 1.3rem;
-            }
-
-            p {
-                font-size: 0.85rem;
-            }
-
-            input {
-                padding: 0.4rem;
-                font-size: 0.9rem;
-            }
-
-            button {
-                padding: 0.5rem;
-                font-size: 0.9rem;
+                min-height: 380px;
             }
 
             .panel img {
-                width: 80px;
-                top: -40px;
+                width: 90px;
+                top: -45px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            input,
+            button,
+            .btn-link {
+                font-size: 0.95rem;
+                padding: 0.6rem;
             }
         }
     </style>
@@ -148,11 +136,9 @@
                 @csrf
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
-                <div class="bottones">
+                <div class="buttons">
                     <button type="submit">Login</button>
-                    <a href="{{ url('/register') }}">
-                        <button type="button">Register</button>
-                    </a>
+                    <a href="{{ url('/register') }}" class="btn-link">Register</a>
                 </div>
             </form>
         </div>

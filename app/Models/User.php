@@ -16,7 +16,8 @@ class User extends Authenticatable
         'password',
         'cooking_skill',
         'diet_type',
-        'created_at'
+        'created_at',
+        'role'
     ];
     public $timestamps = false;
     protected $primaryKey = 'user_id';

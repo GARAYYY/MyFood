@@ -29,6 +29,7 @@ class UserController extends Controller
             'cooking_skill' => $validator['cooking_skill'] ?? null,
             'diet_type' => $validator['diet_type'] ?? null,
             'created_at' => now(),
+            'role' => 0,
         ]);
         return redirect()->intended('/');
     }
