@@ -20,6 +20,7 @@
         padding: 0 1rem;
     }
 
+    /* Desktop: 3 columnas */
     .recipe-link {
         text-decoration: none;
         color: inherit;
@@ -36,8 +37,14 @@
         }
     }
 
-    /* Móvil: 1 columna */
+    /* Móvil: 1 columna completa */
     @media (max-width: 480px) {
+        .cards-container {
+            flex-direction: column;
+            /* Fuerza que los items estén en columna */
+            gap: 1rem;
+        }
+
         .recipe-link {
             flex: 1 1 100%;
             max-width: 100%;
