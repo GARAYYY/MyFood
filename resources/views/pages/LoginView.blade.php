@@ -31,8 +31,8 @@
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
-            position: relative; /* necesario para posicionar la imagen */
-            min-height: 520px; /* más altura */
+            position: relative;
+            min-height: 520px; /* más alto para dar espacio */
         }
 
         h1 {
@@ -67,10 +67,10 @@
             margin-bottom: 1rem;
         }
 
-        /* Imagen decorativa que sobresale */
+        /* Imagen decorativa que sobresale por ARRIBA */
         .panel img {
             position: absolute;
-            bottom: -50px; /* sobresale la mitad */
+            top: -60px; /* sobresale hacia arriba */
             left: 50%;
             transform: translateX(-50%);
             width: 120px;
@@ -95,6 +95,11 @@
             button {
                 padding: 0.6rem;
                 font-size: 0.95rem;
+            }
+
+            .panel img {
+                width: 100px;
+                top: -50px;
             }
         }
 
@@ -125,8 +130,8 @@
             }
 
             .panel img {
-                width: 90px;
-                bottom: -40px;
+                width: 80px;
+                top: -40px;
             }
         }
     </style>
