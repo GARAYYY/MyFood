@@ -20,7 +20,6 @@
         padding: 0 1rem;
     }
 
-    /* Desktop: 3 columnas */
     .recipe-link {
         text-decoration: none;
         color: inherit;
@@ -29,7 +28,6 @@
         max-width: calc(33.333% - 1rem);
     }
 
-    /* Tablet: 2 columnas */
     @media (max-width: 992px) {
         .recipe-link {
             flex: 1 1 calc(50% - 1rem);
@@ -37,12 +35,14 @@
         }
     }
 
-    /* Móvil: 1 columna completa */
     @media (max-width: 480px) {
         .cards-container {
             flex-direction: column;
-            /* Fuerza que los items estén en columna */
             gap: 1rem;
+        }
+
+        .cards-container>a {
+            width: 100%;
         }
 
         .recipe-link {
