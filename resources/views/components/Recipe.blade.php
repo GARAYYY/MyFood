@@ -31,7 +31,7 @@
                     </button>
                 </form>
             @elseif($isFavorite)
-                <form action="{{ route('favorites.destroy', ['recipe_id' => $recipe->recipe_id]) }}" method="POST" style="display:inline;">
+                <form action="{{ route('favorites.destroy', ['recipe_id' => $recipe->recipe_id]) }}" method="DELETE" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="favorite-btn">

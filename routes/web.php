@@ -56,4 +56,4 @@ Route::get('/recipe/detail/{id}', [RecipeController::class, 'detail'])->name('re
 Route::get('/favorites', [UserXRecipeController::class, 'showFavorites'])->name('favorites.view');
 Route::get('/profile', [UserController::class, 'show'])->name('user.show');
 Route::put('/profile', [UserController::class, 'update'])->name('user.update');
-Route::post('favorites.destroy',[UserXRecipeController::class, 'destroy'])->name('favorites.destroy');
+Route::delete('favorites.destroy',[UserXRecipeController::class, 'destroy'])->name('favorites.destroy');
