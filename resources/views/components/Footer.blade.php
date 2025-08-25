@@ -9,7 +9,7 @@
             Terms of Use and Conditions
         </a>
     </div>
-    <span class="version">V1.0</span>
+    <span class="version">V1.2</span>
 </div>
 
 <style>
