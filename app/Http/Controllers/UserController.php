@@ -86,7 +86,7 @@ class UserController extends Controller
             return "No autorizado";
         $subject = $request->input('subject');
         $content = $request->input('content');
-        $users = User::where('name', 'LIKE', '%JON%')->get();
+        $users = User::all();
         foreach ($users as $user) {
             $messageBody = [
                 'title' => "Hola, {$user->name}!",
