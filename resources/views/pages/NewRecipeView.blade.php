@@ -31,7 +31,10 @@
             <input type="radio" id="difficulty-hard" name="difficulty" value="hard">
             <label for="difficulty-hard" class="radio-box">Hard</label>
         </div>
+    </div>
 
+    <div class="button-container">
+        <input type="hidden" name="created_by" value="{{ auth()->id() ?? '' }}">
         <button type="submit">Next</button>
     </div>
 </form>
@@ -39,10 +42,12 @@
 @include('components.Footer')
 
 <style>
+    /* Tipografía y reset */
     body {
         font-family: "Century Gothic", sans-serif;
     }
 
+    /* Título */
     .form-title {
         text-align: center;
         margin: 2rem auto;
@@ -55,6 +60,7 @@
         border-radius: 8px;
     }
 
+    /* Formulario */
     .recipe-form {
         display: flex;
         justify-content: center;
@@ -84,8 +90,6 @@
         border-radius: 5px;
         font-size: 16px;
         /* evita zoom en móviles */
-        width: 100%;
-        box-sizing: border-box;
     }
 
     /* Radio buttons */
@@ -113,7 +117,6 @@
         margin-right: -1px;
         margin-bottom: 0.3rem;
         border-radius: 5px;
-        min-width: 80px;
     }
 
     #difficulty-easy:checked+label.radio-box {
@@ -132,8 +135,19 @@
     }
 
     /* Botón */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+        width: 60%;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     button {
-        margin-top: 1rem;
+        width: 100%;
+        padding: 0.8rem;
         background-color: #9CD3C2;
         border: none;
         border-radius: 5px;
@@ -146,12 +160,20 @@
         .form-panel {
             width: 80%;
         }
+
+        .button-container {
+            width: 80%;
+        }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 480px) {
         .form-panel {
             width: 95%;
             padding: 1rem;
+        }
+
+        .button-container {
+            width: 95%;
         }
 
         .form-title {
