@@ -153,10 +153,21 @@
     }
 
     @media (max-width: 480px) {
-        .form-title{
+        .form-title {
             width: 90%;
             font-size: 1.5rem;
-            padding: 0,5rem 0;
+            padding: 0.5rem 0;
+        }
+
+        .form {
+            flex-direction: column;
+            width: 90%;
+            padding: 1rem;
+        }
+
+        .button-container,
+        button {
+            width: 90%;
         }
     }
 </style>
