@@ -93,7 +93,7 @@
             text-decoration: none;
             font-size: 1rem;
             display: block;
-        }
+        } 
 
         button:hover,
         .btn-link:hover {
