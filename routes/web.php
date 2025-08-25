@@ -1,16 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AllergyController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\InstructionController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\RecipeXIngredientController;
-use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserXRecipeController;
-use App\Models\RecipeXTag;
-use App\Models\UserXAllergy;
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
@@ -57,3 +53,5 @@ Route::get('/favorites', [UserXRecipeController::class, 'showFavorites'])->name(
 Route::get('/profile', [UserController::class, 'show'])->name('user.show');
 Route::put('/profile', [UserController::class, 'update'])->name('user.update');
 Route::delete('/favorites/destroy/{recipe_id}', [UserXRecipeController::class, 'destroy'])->name('favorites.destroy');
+Route::get('/send-emails', [UserController::class, 'showSendEmailForm'])->name('send.emails');
+Route::post('/send-emails', [UserController::class, 'sendCustomEmails'])->name('send.emails.post');

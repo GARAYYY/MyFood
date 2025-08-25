@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
+use App\Mail\CustomEmail;
+use Illuminate\Support\Facades\Mail;
 
 
 class UserController extends Controller
@@ -77,4 +79,24 @@ class UserController extends Controller
         $user->save();
         return redirect()->back()->with('success', 'Profile updated successfully!');
     }
+    public function sendCustomEmails(Request $request)
+    {
+        $admin = User::where('role', 1)->first();
+        if (!$admin)
+            return "No autorizado";
+        $subject = $request->input('subject');
+        $content = $request->input('content');
+        $users = User::all();
+        foreach ($users as $user) {
+            $messageBody = [
+                'title' => "Hola, {$user->name}!",
+                'content' => $content
+            ];
+            Mail::to($user->email)->send(new CustomEmail($subject, $messageBody));
+        }
+        return back()->with('success', 'Correos enviados a todos los usuarios.');
+    }
+    public function showSendEmailForm() {
+    return view('pages.SendMailView');
+}
 }
