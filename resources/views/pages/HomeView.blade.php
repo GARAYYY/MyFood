@@ -27,7 +27,7 @@
         text-decoration: none;
         color: inherit;
         display: block;
-        /* Muy importante para que el link no desborde */
+        /* asegura que el enlace envuelva la card entera */
     }
 
     /* Tablet: 2 columnas */
