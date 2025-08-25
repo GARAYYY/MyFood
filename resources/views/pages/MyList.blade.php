@@ -24,6 +24,11 @@
         padding: 0 3rem;
     }
 
+    .cards-container>* {
+        flex: 1 1 calc(33.333% - 1rem);
+        max-width: calc(33.333% - 1rem);
+    }
+
     .floating-add {
         position: fixed;
         bottom: 20px;
@@ -50,6 +55,5 @@
     .recipe-link {
         text-decoration: none;
         color: inherit;
-        width: fit-content;
     }
 </style>
