@@ -44,7 +44,7 @@ Route::get('/steps', function () {
 //////////////////////////////////////////////////
 Route::get('/ingredient/{recipe}', [IngredientController::class, 'ingredientView'])->name('ingredient.view');
 Route::get('/ingredients/show', [IngredientController::class, 'show']);
-Route::post('/recipes/store', action: [RecipeController::class, 'store']);
+Route::post('/recipes/store',  [RecipeController::class, 'store']);
 Route::get('/home', [RecipeController::class, 'indexView'])->name('home');
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
@@ -56,4 +56,4 @@ Route::get('/recipe/detail/{id}', [RecipeController::class, 'detail'])->name('re
 Route::get('/favorites', [UserXRecipeController::class, 'showFavorites'])->name('favorites.view');
 Route::get('/profile', [UserController::class, 'show'])->name('user.show');
 Route::put('/profile', [UserController::class, 'update'])->name('user.update');
-Route::delete('/favorites/destroy',action: [UserXRecipeController::class, 'destroy'])->name('favorites.destroy');
+Route::delete('/favorites/destroy/{recipe_id}', [UserXRecipeController::class, 'destroy'])->name('favorites.destroy');
