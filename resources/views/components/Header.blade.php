@@ -9,7 +9,7 @@
         <li><a href="{{ url('/newrecipe') }}">Add receipt</a></li>
         <li><a href="{{ url('/profile') }}">Profile</a></li>
         @if(Auth::check() && Auth::user()->role == 1)
-            <li><a href="{{ route('send.emails') }}">Send Emails</a></li>
+            <li><a href="{{ route('emails.view') }}">Send Emails</a></li>
         @endif
         <li><a href="{{ url('/') }}">Close session</a></li>
     </ul>
