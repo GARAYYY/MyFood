@@ -12,10 +12,10 @@
     <div id="steps-container">
         <div class="step-row">
             <label class="step-label">Step 1</label>
-            <textarea name="instructions[]" placeholder="Write the instruction for this step..." class="step-textarea"></textarea>
+            <textarea name="instructions[]" placeholder="Write the instruction for this step..."
+                class="step-textarea"></textarea>
         </div>
     </div>
-
     <div class="buttons">
         <button type="button" id="add-step"><strong>Add Step</strong></button>
         <button type="submit"><strong>Save</strong></button>
@@ -26,63 +26,113 @@
 
 <script>
     let stepCount = 1;
-    document.getElementById('add-step').addEventListener('click', function() {
+    document.getElementById('add-step').addEventListener('click', function () {
         stepCount++;
         const container = document.getElementById('steps-container');
         const div = document.createElement('div');
         div.classList.add('step-row');
         div.innerHTML = `
-            <label class="step-label">Step ${stepCount}</label>
-            <textarea name="instructions[]" placeholder="Write the instruction for this step..." class="step-textarea"></textarea>
-        `;
+        <label class="step-label">Step ${stepCount}</label>
+        <textarea name="instructions[]" placeholder="Write the instruction for this step..." class="step-textarea"></textarea>
+    `;
         container.appendChild(div);
     });
 </script>
 
 <style>
-.form-title {
-    text-align: center;
-    margin: 2rem 0;
-    font-size: 2rem;
-    font-weight: bold;
-}
+    .form-title {
+        text-align: center;
+        margin: 2rem 0;
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: "Century Gothic", sans-serif;
+    }
 
-.step-row {
-    background: #E2F3E9;
-    padding: 1rem;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-}
+    .step-row {
+        background: #E2F3E9;
+        padding: 1rem;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+    }
 
-.step-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
-}
+    .step-label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
 
-.step-textarea {
-    width: 98%;
-    min-height: 80px;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    .step-textarea {
+        width: 100%;
+        min-height: 80px;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+    }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    gap: 1rem;
-}
+    .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
 
-button {
-    padding: 0.8rem 2rem;
-    background: #9CD3C2;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
+    button {
+        padding: 0.8rem 2rem;
+        background: #9CD3C2;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        min-width: 120px;
+    }
+
+    @media (max-width: 992px) {
+        .form-title {
+            font-size: 1.8rem;
+        }
+
+        .step-row {
+            padding: 0.8rem;
+        }
+
+        .step-textarea {
+            min-height: 70px;
+        }
+
+        .buttons {
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        button {
+            width: 80%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .form-title {
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .step-row {
+            padding: 0.6rem;
+        }
+
+        .step-textarea {
+            min-height: 60px;
+            font-size: 0.95rem;
+        }
+
+        button {
+            width: 90%;
+            padding: 0.7rem 0;
+            font-size: 0.95rem;
+        }
+    }
 </style>
