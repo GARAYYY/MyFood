@@ -16,7 +16,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 1rem;
+        gap: 5rem;
         padding: 0 3rem;
     }
 
@@ -54,9 +54,5 @@
         text-decoration: none;
         color: inherit;
         width: fit-content;
-    }
-
-    @media (max-width: 480px) {
-        
     }
 </style>
