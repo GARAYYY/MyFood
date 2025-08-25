@@ -25,12 +25,14 @@
 
         .panel {
             width: 50%;
-            max-width: 400px;
+            max-width: 420px;
             background-color: #ffffff50;
             color: white;
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+            position: relative; /* necesario para posicionar la imagen */
+            min-height: 520px; /* más altura */
         }
 
         h1 {
@@ -65,10 +67,21 @@
             margin-bottom: 1rem;
         }
 
+        /* Imagen decorativa que sobresale */
+        .panel img {
+            position: absolute;
+            bottom: -50px; /* sobresale la mitad */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: auto;
+        }
+
         @media (max-width: 768px) {
             .panel {
                 width: 90%;
                 padding: 1.5rem;
+                min-height: 460px;
             }
 
             h1 {
@@ -90,6 +103,7 @@
                 width: 100%;
                 padding: 1rem;
                 border-radius: 8px;
+                min-height: 420px;
             }
 
             h1 {
@@ -108,6 +122,11 @@
             button {
                 padding: 0.5rem;
                 font-size: 0.9rem;
+            }
+
+            .panel img {
+                width: 90px;
+                bottom: -40px;
             }
         }
     </style>
@@ -129,6 +148,7 @@
                     </a>
                 </div>
             </form>
+            <img src="{{ asset('images/logo.png') }}" alt="Food Icon">
         </div>
     </div>
 </body>
