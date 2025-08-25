@@ -54,7 +54,7 @@
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         font-family: "Century Gothic", sans-serif;
-        min-height: 360px;
+        min-height: 500px;
         max-height: 500px;
         gap: 5rem;
     }
