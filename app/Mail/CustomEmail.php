@@ -19,7 +19,7 @@ class CustomEmail extends Mailable
     public function build()
     {
         return $this->subject($this->subject)
-            ->view('emails.custom') // vista Blade para el correo
+            ->view('emails.CustomMail')
             ->with([
                 'messageBody' => $this->messageBody,
             ]);
