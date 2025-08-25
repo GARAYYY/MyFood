@@ -26,17 +26,32 @@
 
         .panel {
             width: 50%;
-            max-width: 400px;
+            max-width: 420px;
             background-color: #ffffff50;
             color: white;
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+            position: relative;
+            min-height: 500px; /* más alto para dar espacio */
+        }
+
+        .panel img {
+            position: absolute;
+            top: -60px; /* sobresale por arriba */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: auto;
         }
 
         h1,
         p {
             text-align: center;
+        }
+
+        h1 {
+            margin-top: 4rem; /* deja espacio porque la imagen pisa arriba */
         }
 
         input {
@@ -132,12 +147,42 @@
             color: #fff;
             border-color: #40798c65;
         }
+
+        @media (max-width: 768px) {
+            .panel {
+                width: 90%;
+                min-height: 460px;
+                padding: 1.5rem;
+            }
+
+            .panel img {
+                width: 100px;
+                top: -50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .panel {
+                width: 100%;
+                min-height: 420px;
+                padding: 1rem;
+                border-radius: 8px;
+            }
+
+            .panel img {
+                width: 80px;
+                top: -40px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="login">
         <div class="panel">
+            <!-- Imagen decorativa/logo arriba -->
+            <img src="{{ asset('images/logo.png') }}" alt="Food Icon">
+
             <h1>Register</h1>
             <p>Welcome to MyFood</p>
 
@@ -176,8 +221,7 @@
                 <div class="terms">
                     <input type="checkbox" id="terms" name="terms" required />
                     <label for="terms">
-                        I agree to the <a href="/docs/Terms_of_Use_and_Conditions.pdf" target="_blank">Terms of
-                            Use</a>
+                        I agree to the <a href="/docs/Terms_of_Use_and_Conditions.pdf" target="_blank">Terms of Use</a>
                         and <a href="/docs/Legal_Notice_and_Disclaimer.pdf" target="_blank">Legal Notice</a>
                     </label>
                 </div>
