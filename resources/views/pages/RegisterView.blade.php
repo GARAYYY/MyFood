@@ -202,7 +202,7 @@
                 <input type="email" name="email" placeholder="Correo electronico" value="{{ old('email') }}" required />
                 <input type="password" name="password" placeholder="Contraseña" required />
                 <div class="radio-group">
-                    <input id="skill-beginner" type="radio" name="cooking_skill" value="Principiante" {{ old('cooking_skill') == 'Principiante' ? 'checked' : '' }}>
+                    <input id="skill-beginner" type="radio" name="cooking_skill" value="Principiante" checked {{ old('cooking_skill') == 'Principiante' ? 'checked' : '' }}>
                     <label for="skill-beginner" class="radio-box">Principiante</label>
                     <input id="skill-intermediate" type="radio" name="cooking_skill" value="Intermedio" {{ old('cooking_skill') == 'Intermedio' ? 'checked' : '' }}>
                     <label for="skill-intermediate" class="radio-box">Intermedio</label>
