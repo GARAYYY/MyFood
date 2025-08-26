@@ -15,22 +15,27 @@ class UserController extends Controller
 {
     public function register(Request $request)
     {
-        $validator = $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6',
             'cooking_skill' => 'nullable|string',
             'diet_type' => 'nullable|string',
         ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         $user = User::create([
-            'name' => $validator['name'],
-            'email' => $validator['email'],
-            'password' => Hash::make($validator['password']),
-            'cooking_skill' => $validator['cooking_skill'] ?? null,
-            'diet_type' => $validator['diet_type'] ?? null,
-            'created_at' => now(),
+            'name' => $validator->validated()['name'],
+            'email' => $validator->validated()['email'],
+            'password' => Hash::make($validator->validated()['password']),
+            'cooking_skill' => $validator->validated()['cooking_skill'] ?? null,
+            'diet_type' => $validator->validated()['diet_type'] ?? null,
             'role' => 0,
         ]);
+
         return redirect()->intended('/');
     }
     public function login(Request $request)

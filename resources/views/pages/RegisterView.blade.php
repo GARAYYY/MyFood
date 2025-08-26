@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 🔥 Hace la página responsiva -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - MyFood</title>
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         * {
             margin: 0;
@@ -185,38 +186,41 @@
             <img src="{{ asset('images/logo.png') }}" alt="Food Icon">
             <h1>Registro</h1>
             <p>Bienvenido a MyFood</p>
+            @if ($errors->any())
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de validación',
+                        html: `{!! implode('<br>', $errors->all()) !!}`,
+                        confirmButtonText: 'Cerrar'
+                    });
+                </script>
+            @endif
             <form method="POST" action="{{ url('/register') }}">
                 @csrf
-                <input type="text" name="name" placeholder="Nombre" required />
-                <input type="email" name="email" placeholder="Correo electronico" required />
+                <input type="text" name="name" placeholder="Nombre" value="{{ old('name') }}" required />
+                <input type="email" name="email" placeholder="Correo electronico" value="{{ old('email') }}" required />
                 <input type="password" name="password" placeholder="Contraseña" required />
                 <div class="radio-group">
-                    <input id="skill-beginner" type="radio" name="cooking_skill" value="Principiante" checked>
+                    <input id="skill-beginner" type="radio" name="cooking_skill" value="Principiante" {{ old('cooking_skill') == 'Principiante' ? 'checked' : '' }}>
                     <label for="skill-beginner" class="radio-box">Principiante</label>
-                    <input id="skill-intermediate" type="radio" name="cooking_skill" value="Intermedio">
+                    <input id="skill-intermediate" type="radio" name="cooking_skill" value="Intermedio" {{ old('cooking_skill') == 'Intermedio' ? 'checked' : '' }}>
                     <label for="skill-intermediate" class="radio-box">Intermedio</label>
-                    <input id="skill-expert" type="radio" name="cooking_skill" value="Avanzado">
+                    <input id="skill-expert" type="radio" name="cooking_skill" value="Avanzado" {{ old('cooking_skill') == 'Avanzado' ? 'checked' : '' }}>
                     <label for="skill-expert" class="radio-box">Avanzado</label>
                 </div>
                 <div class="radio-group">
-                    <input id="diet-none" type="radio" name="diet_type" value="Ninguna" checked>
-                    <label for="diet-none" class="radio-box">Ninguna</label>
-                    <input id="diet-vegetarian" type="radio" name="diet_type" value="Vegetariana">
-                    <label for="diet-vegetarian" class="radio-box">Vegetariana</label>
-                    <input id="diet-vegan" type="radio" name="diet_type" value="Vegana">
-                    <label for="diet-vegan" class="radio-box">Vegana</label>
-                    <input id="diet-lowcarb" type="radio" name="diet_type" value="Bajos carbohidratos">
-                    <label for="diet-lowcarb" class="radio-box">Bajos Carbohidratos</label>
-                    <input id="diet-other" type="radio" name="diet_type" value="Otra">
-                    <label for="diet-other" class="radio-box">Otra</label>
+                    @foreach(['Ninguna', 'Vegetariana', 'Vegana', 'Bajos carbohidratos', 'Otra'] as $diet)
+                        <input id="diet-{{ Str::slug($diet) }}" type="radio" name="diet_type" value="{{ $diet }}" {{ old('diet_type') == $diet ? 'checked' : '' }}>
+                        <label for="diet-{{ Str::slug($diet) }}" class="radio-box">{{ $diet }}</label>
+                    @endforeach
                 </div>
                 <div class="terms">
                     <input type="checkbox" id="terms" name="terms" required />
                     <label for="terms">
                         Acepto el <a href="/docs/Aviso_Legal_y_Descargo_de_Responsabilidad.pdf" target="_blank">Aviso
                             Legal</a>
-                        y los <a href="/docs/Terminos_y_Condiciones_de_Uso.pdf" target="_blank">T&eacute;rminos de
-                            Uso</a>
+                        y los <a href="/docs/Terminos_y_Condiciones_de_Uso.pdf" target="_blank">Términos de Uso</a>
                     </label>
                 </div>
                 <button type="submit">Registrarse</button>
