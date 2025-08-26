@@ -51,7 +51,7 @@ Route::post('/favorites/store', [UserXRecipeController::class, 'store'])->name('
 Route::get('/recipe/detail/{id}', [RecipeController::class, 'detail'])->name('recipe.detail');
 Route::get('/favorites', [UserXRecipeController::class, 'showFavorites'])->name('favorites.view');
 Route::get('/profile', [UserController::class, 'show'])->name('user.show');
-Route::put('/profile', [UserController::class, 'update'])->name('user.update');
+Route::put('/profile/{id}', [UserController::class, 'update'])->name('user.update');
 Route::delete('/favorites/destroy/{recipe_id}', [UserXRecipeController::class, 'destroy'])->name('favorites.destroy');
 Route::get('/emails', [UserController::class, 'showSendEmailForm'])->name('emails.view');
 Route::post('/send-emails', [UserController::class, 'sendCustomEmails'])->name('emails.send');

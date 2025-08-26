@@ -60,9 +60,9 @@ class UserController extends Controller
         $user = auth()->user()->load('recipes');
         return view('pages.ProfileView', compact('user'));
     }
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $user = Auth::user();
+        $user = User::findOrFail($id);
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
@@ -78,7 +78,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->save();
-        return redirect()->back()->with('success', 'Profile updated successfully!');
+        return redirect()->back()->with('success', 'Perfil actualizado correctamente!');
     }
     public function sendCustomEmails(Request $request)
     {
