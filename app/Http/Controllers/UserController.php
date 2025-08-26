@@ -27,7 +27,7 @@ class UserController extends Controller
             'email.email' => 'Ingresa un correo válido.',
             'email.unique' => 'Este correo ya está registrado.',
             'password.required' => 'Debes ingresar una contraseña.',
-            'password.min' => 'La contraseña debe tener al menos 6 caracteres.',
+            'password.min' => 'La contraseña debe tener al menos 6 caracteres e incluir como mínimo 1 minúscula, 1 mayúscula y 1 número.',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
