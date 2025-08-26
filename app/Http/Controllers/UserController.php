@@ -64,7 +64,7 @@ class UserController extends Controller
         $token = Auth::attempt($credentials);
         if (!$token) {
             return redirect()->back()
-                ->withErrors(['login_error' => 'Las credenciales ingresadas no son correctas.'])
+                ->withErrors(['login_error' => 'Correo o contraseña incorrectos'])
                 ->withInput();
         }
         $user = Auth::user();
