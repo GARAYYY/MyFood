@@ -206,8 +206,8 @@
                     <label for="diet-vegan" class="radio-box">Vegana</label>
                     <input id="diet-lowcarb" type="radio" name="diet_type" value="Bajos carbohidratos">
                     <label for="diet-lowcarb" class="radio-box">Bajos Carbohidratos</label>
-                    <input id="other" type="radio" name="diet_type" value="Otra">
-                    <label for="orher" class="radio-box">Otra</label>
+                    <input id="diet-other" type="radio" name="diet_type" value="Otra">
+                    <label for="diet-orher" class="radio-box">Otra</label>
                 </div>
                 <div class="terms">
                     <input type="checkbox" id="terms" name="terms" required />
