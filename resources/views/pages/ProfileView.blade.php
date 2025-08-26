@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <form action="{{ route('user.update', ['id' => $user->id]) }}" method="POST" class="user-details">
+        <form action="{{ route('user.update') }}" method="POST" class="user-details">
             @csrf
             @method('PUT')
             <p>
