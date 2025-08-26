@@ -2,7 +2,7 @@
 
 <div class="cards-container">
     @if($recipes->isEmpty())
-        <p>No tienes recetas en favoritos todavía.</p>
+        <p>No tienes recetas en favoritos todav&iacute;a.</p>
     @else
         @foreach($recipes as $recipe)
             <a href="{{ route('recipe.detail', ['id' => $recipe->recipe_id]) }}" class="recipe-link">

@@ -130,15 +130,15 @@
     <div class="login">
         <div class="panel">
             <img src="{{ asset('images/logo.png') }}" alt="Food Icon">
-            <h1>Sign In</h1>
-            <p>Welcome to MyFood</p>
+            <h1>Iniciar Sesi&oacute;n</h1>
+            <p>Bienvenido a MyFood</p>
             <form method="POST" action="{{ url('/login') }}">
                 @csrf
-                <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="password" placeholder="Password" required />
+                <input type="email" name="email" placeholder="Correo electronico" required />
+                <input type="password" name="password" placeholder="Contraseña" required />
                 <div class="buttons">
-                    <button type="submit">Login</button>
-                    <a href="{{ url('/register') }}" class="btn-link">Register</a>
+                    <button type="submit">Entrar</button>
+                    <a href="{{ url('/register') }}" class="btn-link">Registrarse</a>
                 </div>
             </form>
         </div>

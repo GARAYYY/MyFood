@@ -11,14 +11,14 @@
     <input type="hidden" name="recipe_id" value="{{ $recipeId }}">
     <div id="steps-container">
         <div class="step-row">
-            <label class="step-label">Step 1</label>
+            <label class="step-label">Paso 1</label>
             <textarea name="instructions[]" placeholder="Write the instruction for this step..." class="step-textarea"></textarea>
         </div>
     </div>
 
     <div class="buttons">
-        <button type="button" id="add-step"><strong>Add Step</strong></button>
-        <button type="submit"><strong>Save</strong></button>
+        <button type="button" id="add-step"><strong>Añadir pasos</strong></button>
+        <button type="submit"><strong>Crear receta</strong></button>
     </div>
 </form>
 
@@ -32,8 +32,8 @@
         const div = document.createElement('div');
         div.classList.add('step-row');
         div.innerHTML = `
-            <label class="step-label">Step ${stepCount}</label>
-            <textarea name="instructions[]" placeholder="Write the instruction for this step..." class="step-textarea"></textarea>
+            <label class="step-label">Paso ${stepCount}</label>
+            <textarea name="instructions[]" placeholder="Describe el paso..." class="step-textarea"></textarea>
         `;
         container.appendChild(div);
     });

@@ -23,48 +23,48 @@
             @csrf
             @method('PUT')
             <p>
-                <strong>Name:</strong>
+                <strong>Nombre:</strong>
                 <input name="name" type="text" value="{{ old('name', $user->name) }}" required>
             </p>
             <p>
-                <strong>Email:</strong>
+                <strong>Correo electr&oacute;nico:</strong>
                 <input name="email" type="email" value="{{ old('email', $user->email) }}" required>
             </p>
             <p>
-                <strong>Password:</strong>
+                <strong>Contrase&ntilde;a:</strong>
                 <input name="password" type="password" placeholder="Leave blank to keep current">
             </p>
             <p>
-                <strong>Confirm Password:</strong>
+                <strong>Confirmar contrase&ntilde;a:</strong>
                 <input name="password_confirmation" type="password" placeholder="Confirm password">
             </p>
             <p>
-                <strong>Cooking Skill:</strong>
+                <strong>Nivel de cocina:</strong>
                 <select name="cooking_skill" required>
-                    <option disabled value="">Select skill</option>
-                    <option value="Beginner" {{ $user->cooking_skill == 'Beginner' ? 'selected' : '' }}>Beginner</option>
+                    <option disabled value="">Elige un nivel</option>
+                    <option value="Beginner" {{ $user->cooking_skill == 'Beginner' ? 'selected' : '' }}>Principiante</option>
                     <option value="Intermediate" {{ $user->cooking_skill == 'Intermediate' ? 'selected' : '' }}>
-                        Intermediate</option>
-                    <option value="Advanced" {{ $user->cooking_skill == 'Advanced' ? 'selected' : '' }}>Advanced</option>
+                        Intermedio</option>
+                    <option value="Advanced" {{ $user->cooking_skill == 'Advanced' ? 'selected' : '' }}>Avanzado</option>
                 </select>
             </p>
             <p>
-                <strong>Diet Type:</strong>
+                <strong>Tipo de dieta:</strong>
                 <select name="diet_type" required>
-                    <option disabled value="">Select diet</option>
+                    <option disabled value="">Elige una dieta</option>
                     @foreach(['None', 'Vegan', 'Vegetarian', 'Keto', 'Paleo', 'LowCarb', 'Other'] as $diet)
                         <option value="{{ $diet }}" {{ $user->diet_type == $diet ? 'selected' : '' }}>{{ $diet }}</option>
                     @endforeach
                 </select>
             </p>
-            <button type="submit" class="save-btn">Save Changes</button>
+            <button type="submit" class="save-btn">Guardar cambios</button>
         </form>
     </div>
 
     <div class="user-recipes">
-        <h2>My Recipes</h2>
+        <h2>Mis Recetas</h2>
         @if($recipes->isEmpty())
-            <p class="empty-msg">No recipes created yet.</p>
+            <p class="empty-msg">No has creado ninguna receta a&uacute;n</p>
         @else
             <div class="recipes-list">
                 @foreach($recipes as $recipe)

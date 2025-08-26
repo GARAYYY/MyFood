@@ -31,7 +31,6 @@
                             <a href="{{ url('/') }}" style="color:#40798c; text-decoration:none;">Visita nuestra web</a>
                         </td>
                     </tr>
-
                 </table>
             </td>
         </tr>

@@ -4,14 +4,14 @@
 <div class="header">
     <h1>MyFood</h1>
     <ul>
-        <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/favorites') }}">My list</a></li>
-        <li><a href="{{ url('/newrecipe') }}">Add recipe</a></li>
-        <li><a href="{{ url('/profile') }}">Profile</a></li>
+        <li><a href="{{ url('/home') }}">Inicio</a></li>
+        <li><a href="{{ url('/favorites') }}">Mis Favoritos</a></li>
+        <li><a href="{{ url('/newrecipe') }}">Crear Receta</a></li>
+        <li><a href="{{ url('/profile') }}">Perfil</a></li>
         @if(Auth::check() && Auth::user()->role == 1)
-            <li><a href="{{ route('emails.view') }}">Send Emails</a></li>
+            <li><a href="{{ route('emails.view') }}">Enviar Mails</a></li>
         @endif
-        <li><a href="{{ url('/') }}">Close session</a></li>
+        <li><a href="{{ url('/') }}">Cerrar Sesi&oacute;n</a></li>
     </ul>
 </div>
 

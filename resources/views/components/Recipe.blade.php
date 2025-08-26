@@ -15,12 +15,12 @@
         <h2 class="card-title">{{ $recipe->title }}</h2>
         <p class="card-description">{{ $recipe->description }}</p>
         <div class="card-info">
-            <span><strong>Time:</strong> {{ $recipe->cooking_time }} min</span>
-            <span><strong>Difficulty:</strong> {{ $recipe->difficulty }}</span>
-            <span><strong>Servings:</strong> {{ $recipe->servings }}</span>
+            <span><strong>Tiempo:</strong> {{ $recipe->cooking_time }} min</span>
+            <span><strong>Dificultad:</strong> {{ $recipe->difficulty }}</span>
+            <span><strong>Raciones:</strong> {{ $recipe->servings }}</span>
         </div>
         <small class="card-date">
-            Created: {{ \Carbon\Carbon::parse($recipe->created_at)->format('d/m/Y') }}
+            Creado: {{ \Carbon\Carbon::parse($recipe->created_at)->format('d/m/Y') }}
             @if(auth()->check() && !$isFavorite)
                 <form action="{{ route('favorites.store') }}" method="POST" style="display:inline;">
                     @csrf

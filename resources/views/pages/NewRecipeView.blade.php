@@ -6,47 +6,46 @@
     @csrf
     <div class="form">
         <div class="left">
-            <label for="title">Title</label>
+            <label for="title">Titulo</label>
             <input type="text" name="title" id="title" value="{{ old('title') }}" required>
             
-            <label for="description">Description</label>
+            <label for="description">Descripci&oacute;n</label>
             <input type="text" name="description" id="description" value="{{ old('description') }}" required>
             
-            <label for="cooking_time">Time (mins)</label>
+            <label for="cooking_time">Tiempo (mins)</label>
             <input type="number" name="cooking_time" id="cooking_time" value="{{ old('cooking_time') }}" required>
         </div>
 
         <div class="right">
-            <label for="servings">Servings</label>
+            <label for="servings">Raciones</label>
             <input type="number" name="servings" id="servings" value="{{ old('servings') }}" required>
             
-            <label for="image">Image</label>
+            <label for="image">Im&aacute;gen</label>
             <input type="file" name="image" id="image" accept="image/*">
             
-            <label>Difficulty</label>
+            <label>Dificultad</label>
             <div class="radio-group">
                 <input type="radio" id="difficulty-easy" name="difficulty" value="easy" checked>
-                <label for="difficulty-easy" class="radio-box">Easy</label>
+                <label for="difficulty-easy" class="radio-box">F&aacute;cil</label>
 
                 <input type="radio" id="difficulty-medium" name="difficulty" value="medium">
-                <label for="difficulty-medium" class="radio-box">Medium</label>
+                <label for="difficulty-medium" class="radio-box">Medio</label>
 
                 <input type="radio" id="difficulty-hard" name="difficulty" value="hard">
-                <label for="difficulty-hard" class="radio-box">Hard</label>
+                <label for="difficulty-hard" class="radio-box">Dif&iacute;cil</label>
             </div>
         </div>
     </div>
 
     <div class="button-container">
         <input type="hidden" name="created_by" value="{{ auth()->id() ?? '' }}">
-        <button type="submit"><strong>Next</strong></button>
+        <button type="submit"><strong>Siguiente</strong></button>
     </div>
 </form>
 
 @include('components.Footer')
 
 <style>
-/* Copia aquí todo tu CSS del componente Vue, ajustando selectores si es necesario */
 .form-title {
     font-family: "Century Gothic", sans-serif;
     text-align: center;

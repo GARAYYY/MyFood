@@ -97,20 +97,20 @@
                 <h1>{{ $recipe->title }}</h1>
                 <p class="description">{{ $recipe->description }}</p>
                 <div class="meta">
-                    <span><strong>Difficulty:</strong> {{ $recipe->difficulty }}</span>
-                    <span><strong>Cooking Time:</strong> {{ $recipe->cooking_time }} mins</span>
-                    <span><strong>Servings:</strong> {{ $recipe->servings }}</span>
+                    <span><strong>Dificultad:</strong> {{ $recipe->difficulty }}</span>
+                    <span><strong>Tiempo de elaboraci&oacute;n:</strong> {{ $recipe->cooking_time }} mins</span>
+                    <span><strong>Raciones:</strong> {{ $recipe->servings }}</span>
                 </div>
             </div>
         </div>
         <div class="author-card">
-            <h3>Author</h3>
-            <p><strong>Name:</strong> {{ $recipe->author->name }}</p>
-            <p><strong>Cooking Skill:</strong> {{ $recipe->author->cooking_skill }}</p>
-            <p><strong>Diet Type:</strong> {{ $recipe->author->diet_type }}</p>
+            <h3>Autor</h3>
+            <p><strong>Nombre:</strong> {{ $recipe->author->name }}</p>
+            <p><strong>Nivel de cocina:</strong> {{ $recipe->author->cooking_skill }}</p>
+            <p><strong>Tipo de dieta:</strong> {{ $recipe->author->diet_type }}</p>
         </div>
         <div class="ingredients">
-            <h3>Ingredients</h3>
+            <h3>Ingredientes</h3>
             <div>
                 @foreach($recipe->ingredients as $ingredient)
                     <p>{{ $ingredient->pivot->quantity }} gr/ud × {{ $ingredient->name }}</p>
@@ -118,7 +118,7 @@
             </div>
         </div>
         <div class="instructions">
-            <h3>Instructions</h3>
+            <h3>Instrucciones</h3>
             <div>
                 @foreach($recipe->instructions as $step)
                     <p><strong>{{ $step->step_number }}.</strong> {{ $step->description }}</p>

@@ -2,12 +2,13 @@
 
 <div class="footer">
     <div class="links">
-        <a href="{{ url('docs/Legal_Notice_and_Disclaimer.pdf') }}" target="_blank">
-            Legal Notice and Disclaimer
+        <a href="{{ url('/docs/Aviso_Legal_y_Descargo_de_Responsabilidad.pdf') }}" target="_blank">
+            Aviso Legal
         </a>
-        <a href="{{ url('docs/Terms_of_Use_and_Conditions.pdf') }}" target="_blank">
-            Terms of Use and Conditions
+        <a href="{{ url('/docs/Terminos_y_Condiciones_de_Uso.pdf') }}" target="_blank">
+            T&eacute;rminos de Uso
         </a>
+        <span> | support@myfood.click</span>
     </div>
     <span class="version">V1.3</span>
 </div>
