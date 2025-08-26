@@ -60,12 +60,12 @@ class UserController extends Controller
         $user = auth()->user()->load('recipes');
         return view('pages.ProfileView', compact('user'));
     }
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $user = Auth::user();
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $user->id,
+            'email' => 'required|email|unique:users,email,' . $user->user_id,
             'password' => 'nullable|string|min:6|confirmed',
             'cooking_skill' => 'required|string',
             'diet_type' => 'required|string',
