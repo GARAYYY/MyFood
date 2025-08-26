@@ -24,8 +24,8 @@ class UserController extends Controller
                 'password.min' => 'La contraseña debe tener al menos 6 caracteres.',
                 'password.required' => 'Debes ingresar una contraseña.',
             ]),
-            'cooking_skill' => 'required|string',
-            'diet_type' => 'required|string',
+            'cooking_skill' => 'nullable|string',
+            'diet_type' => 'nullable|string',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
