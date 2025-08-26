@@ -182,7 +182,7 @@
     <div class="login">
         <div class="panel">
             <img src="{{ asset('images/logo.png') }}" alt="Food Icon">
-            <h1>Registrarse</h1>
+            <h1>Registro</h1>
             <p>Bienvenido a MyFood</p>
             <form method="POST" action="{{ url('/register') }}">
                 @csrf
@@ -190,22 +190,24 @@
                 <input type="email" name="email" placeholder="Correo electronico" required />
                 <input type="password" name="password" placeholder="Contraseña" required />
                 <div class="radio-group">
-                    <input id="skill-beginner" type="radio" name="cooking_skill" value="Beginner" checked>
+                    <input id="skill-beginner" type="radio" name="cooking_skill" value="Principiante" checked>
                     <label for="skill-beginner" class="radio-box">Principiante</label>
-                    <input id="skill-intermediate" type="radio" name="cooking_skill" value="Intermediate">
+                    <input id="skill-intermediate" type="radio" name="cooking_skill" value="Intermedio">
                     <label for="skill-intermediate" class="radio-box">Intermedio</label>
-                    <input id="skill-expert" type="radio" name="cooking_skill" value="Expert">
+                    <input id="skill-expert" type="radio" name="cooking_skill" value="Avanzado">
                     <label for="skill-expert" class="radio-box">Avanzado</label>
                 </div>
                 <div class="radio-group">
-                    <input id="diet-none" type="radio" name="diet_type" value="None" checked>
+                    <input id="diet-none" type="radio" name="diet_type" value="Ninguna" checked>
                     <label for="diet-none" class="radio-box">Ninguna</label>
-                    <input id="diet-vegetarian" type="radio" name="diet_type" value="Vegetarian">
+                    <input id="diet-vegetarian" type="radio" name="diet_type" value="Vegetariana">
                     <label for="diet-vegetarian" class="radio-box">Vegetariana</label>
-                    <input id="diet-vegan" type="radio" name="diet_type" value="Vegan">
+                    <input id="diet-vegan" type="radio" name="diet_type" value="Vegana">
                     <label for="diet-vegan" class="radio-box">Vegana</label>
-                    <input id="diet-lowcarb" type="radio" name="diet_type" value="LowCarb">
+                    <input id="diet-lowcarb" type="radio" name="diet_type" value="Bajos carbohidratos">
                     <label for="diet-lowcarb" class="radio-box">Bajos Carbohidratos</label>
+                    <input id="other" type="radio" name="diet_type" value="Otra">
+                    <label for="orher" class="radio-box">Otra</label>
                 </div>
                 <div class="terms">
                     <input type="checkbox" id="terms" name="terms" required />
@@ -215,7 +217,7 @@
                     </label>
                 </div>
                 <button type="submit">Registrarse</button>
-                <a href="{{ url('/') }}" class="btn-link">Iniciar Sesi&oacute;n</a>
+                <a href="{{ url('/') }}" class="btn-link">Volver</a>
             </form>
         </div>
     </div>

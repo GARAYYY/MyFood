@@ -52,7 +52,7 @@
                 <strong>Tipo de dieta:</strong>
                 <select name="diet_type" required>
                     <option disabled value="">Elige una dieta</option>
-                    @foreach(['None', 'Vegan', 'Vegetarian', 'Keto', 'Paleo', 'LowCarb', 'Other'] as $diet)
+                    @foreach(['Ninguna', 'Vegana', 'Vegetariana', 'Bajos carbohidratos', 'Otra'] as $diet)
                         <option value="{{ $diet }}" {{ $user->diet_type == $diet ? 'selected' : '' }}>{{ $diet }}</option>
                     @endforeach
                 </select>

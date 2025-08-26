@@ -1,6 +1,6 @@
 @include('components.Header')
 
-<h1 class="form-title">Select Ingredients</h1>
+<h1 class="form-title">Selecciona Ingredientes</h1>
 
 @php
     $ingredients = \App\Models\Ingredient::all();
@@ -19,7 +19,7 @@
                     <label for="ingredient-{{ $ingredient->ingredient_id }}" class="ingredient-label">
                         {{ $ingredient->name }}
                     </label>
-                    <input type="number" name="quantities[{{ $ingredient->ingredient_id }}]" placeholder="Quantity"
+                    <input type="number" name="quantities[{{ $ingredient->ingredient_id }}]" placeholder="Cantidad"
                         class="quantity-input"> gr/ud
                 </div>
             @endforeach
@@ -27,7 +27,7 @@
     </div>
 
     <div class="button-container">
-        <button type="submit"><strong>Next</strong></button>
+        <button type="submit"><strong>Siguiente</strong></button>
     </div>
 </form>
 

@@ -16,7 +16,7 @@ class RecipeController extends Controller
             'cooking_time' => 'required|integer',
             'servings' => 'required|integer',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'difficulty' => 'required|in:easy,medium,hard',
+            'difficulty' => 'required|string',
             'created_by' => 'required|integer|exists:users,user_id',
         ]);
         $imageUrl = null;

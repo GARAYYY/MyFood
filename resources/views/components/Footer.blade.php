@@ -8,7 +8,7 @@
         <a href="{{ url('/docs/Terminos_y_Condiciones_de_Uso.pdf') }}" target="_blank">
             T&eacute;rminos de Uso
         </a>
-        <span> | support@myfood.click</span>
+        <span> | support@myfood.click | <a href="https://myfood.click/">https://myfood.click/</a></span>
     </div>
     <span class="version">V1.3</span>
 </div>

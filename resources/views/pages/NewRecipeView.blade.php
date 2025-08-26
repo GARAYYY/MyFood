@@ -1,6 +1,6 @@
 @include('components.Header')
 
-<h1 class="form-title">New Recipe</h1>
+<h1 class="form-title">Crear Receta</h1>
 
 <form action="{{ url('/recipes/store') }}" method="POST" enctype="multipart/form-data">
     @csrf
@@ -25,13 +25,13 @@
             
             <label>Dificultad</label>
             <div class="radio-group">
-                <input type="radio" id="difficulty-easy" name="difficulty" value="easy" checked>
+                <input type="radio" id="difficulty-easy" name="difficulty" value="Facil" checked>
                 <label for="difficulty-easy" class="radio-box">F&aacute;cil</label>
 
-                <input type="radio" id="difficulty-medium" name="difficulty" value="medium">
+                <input type="radio" id="difficulty-medium" name="difficulty" value="Medio">
                 <label for="difficulty-medium" class="radio-box">Medio</label>
 
-                <input type="radio" id="difficulty-hard" name="difficulty" value="hard">
+                <input type="radio" id="difficulty-hard" name="difficulty" value="Dificil">
                 <label for="difficulty-hard" class="radio-box">Dif&iacute;cil</label>
             </div>
         </div>

@@ -1,6 +1,6 @@
 @include('components.Header')
 
-<h1 class="form-title">Add Recipe Instructions</h1>
+<h1 class="form-title">Instrucciones de la Receta</h1>
 
 @php
     $recipeId = session('recipe_id');
@@ -12,12 +12,12 @@
     <div id="steps-container">
         <div class="step-row">
             <label class="step-label">Paso 1</label>
-            <textarea name="instructions[]" placeholder="Write the instruction for this step..." class="step-textarea"></textarea>
+            <textarea name="instructions[]" placeholder="Escribe las instrucciones del paso..." class="step-textarea"></textarea>
         </div>
     </div>
 
     <div class="buttons">
-        <button type="button" id="add-step"><strong>Añadir pasos</strong></button>
+        <button type="button" id="add-step"><strong>Añadir paso</strong></button>
         <button type="submit"><strong>Crear receta</strong></button>
     </div>
 </form>
@@ -33,7 +33,7 @@
         div.classList.add('step-row');
         div.innerHTML = `
             <label class="step-label">Paso ${stepCount}</label>
-            <textarea name="instructions[]" placeholder="Describe el paso..." class="step-textarea"></textarea>
+            <textarea name="instructions[]" placeholder="Escribe las instrucciones del paso..." class="step-textarea"></textarea>
         `;
         container.appendChild(div);
     });
