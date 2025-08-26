@@ -62,7 +62,7 @@ class UserController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        $user = Auth::user();
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
@@ -78,7 +78,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->save();
-        return redirect()->back()->with('success', 'Perfil actualizado correctamente!');
+        return redirect()->back()->with('success', 'Profile updated successfully!');
     }
     public function sendCustomEmails(Request $request)
     {

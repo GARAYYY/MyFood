@@ -19,7 +19,8 @@
             </div>
         </div>
 
-        <form action="{{ route('user.update', ['id' => $user->id]) }}" method="POST" class="user-details"> @csrf
+        <form action="{{ route('user.update', ['id' => $user->id]) }}" method="POST" class="user-details">
+            @csrf
             @method('PUT')
             <p>
                 <strong>Nombre:</strong>
@@ -41,8 +42,7 @@
                 <strong>Nivel de cocina:</strong>
                 <select name="cooking_skill" required>
                     <option disabled value="">Elige un nivel</option>
-                    <option value="Beginner" {{ $user->cooking_skill == 'Beginner' ? 'selected' : '' }}>Principiante
-                    </option>
+                    <option value="Beginner" {{ $user->cooking_skill == 'Beginner' ? 'selected' : '' }}>Principiante</option>
                     <option value="Intermediate" {{ $user->cooking_skill == 'Intermediate' ? 'selected' : '' }}>
                         Intermedio</option>
                     <option value="Advanced" {{ $user->cooking_skill == 'Advanced' ? 'selected' : '' }}>Avanzado</option>
@@ -158,9 +158,9 @@
     }
 
     .user-recipes a {
-        text-decoration: none;
-        color: inherit;
-    }
+    text-decoration: none;
+    color: inherit;
+}
 
     .user-recipes h2 {
         margin-bottom: 1rem;
