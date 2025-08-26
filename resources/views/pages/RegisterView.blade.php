@@ -210,10 +210,16 @@
                     <label for="skill-expert" class="radio-box">Avanzado</label>
                 </div>
                 <div class="radio-group">
-                    @foreach(['Ninguna', 'Vegetariana', 'Vegana', 'Bajos carbohidratos', 'Otra'] as $diet)
-                        <input id="diet-{{ Str::slug($diet) }}" type="radio" name="diet_type" value="{{ $diet }}" {{ old('diet_type') == $diet ? 'checked' : '' }}>
-                        <label for="diet-{{ Str::slug($diet) }}" class="radio-box">{{ $diet }}</label>
-                    @endforeach
+                    <input id="diet-none" type="radio" name="diet_type" value="Ninguna" checked>
+                    <label for="diet-none" class="radio-box">Ninguna</label>
+                    <input id="diet-vegetarian" type="radio" name="diet_type" value="Vegetariana">
+                    <label for="diet-vegetarian" class="radio-box">Vegetariana</label>
+                    <input id="diet-vegan" type="radio" name="diet_type" value="Vegana">
+                    <label for="diet-vegan" class="radio-box">Vegana</label>
+                    <input id="diet-lowcarb" type="radio" name="diet_type" value="Bajos carbohidratos">
+                    <label for="diet-lowcarb" class="radio-box">Bajos Carbohidratos</label>
+                    <input id="diet-other" type="radio" name="diet_type" value="Otra">
+                    <label for="diet-other" class="radio-box">Otra</label>
                 </div>
                 <div class="terms">
                     <input type="checkbox" id="terms" name="terms" required />
