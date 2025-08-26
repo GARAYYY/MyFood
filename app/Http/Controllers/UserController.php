@@ -60,7 +60,7 @@ class UserController extends Controller
         $user = auth()->user()->load('recipes');
         return view('pages.ProfileView', compact('user'));
     }
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $user = Auth::user();
         $request->validate([
