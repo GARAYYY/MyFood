@@ -182,6 +182,31 @@
 <body>
     <div class="login">
         <div class="panel">
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            @if ($errors->any())
+                    <script>
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error de validación',
+                            html: `
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}<br>
+                    @endforeach
+                `,
+                            confirmButtonText: 'Cerrar'
+                        });
+                    </script>
+            @endif
+            @if (session('error'))
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: '{{ session('error') }}',
+                        confirmButtonText: 'Cerrar'
+                    });
+                </script>
+            @endif
             <img src="{{ asset('images/logo.png') }}" alt="Food Icon">
             <h1>Registro</h1>
             <p>Bienvenido a MyFood</p>

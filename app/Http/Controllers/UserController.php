@@ -40,19 +40,16 @@ class UserController extends Controller
             'password' => 'required|string',
         ]);
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
         }
         $credentials = $request->only('email', 'password');
-        $token = Auth::attempt($credentials);
-        if (!$token) {
-            return response()->json(
-                [
-                    'error' => 'Wrong credentials',
-                ],
-                401
-            );
+        if (!Auth::attempt($credentials)) {
+            return redirect()->back()
+                ->with('error', 'Correo o contraseña incorrectos')
+                ->withInput();
         }
-        $user = Auth::user();
         return redirect()->route('home');
     }
     public function show()
