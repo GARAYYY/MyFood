@@ -18,7 +18,12 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:6',
+            $validator = Validator::make($request->all(), [
+                'password' => 'required|string|min:6',
+            ], [
+                'password.min' => 'La contraseña debe tener al menos 6 caracteres.',
+                'password.required' => 'Debes ingresar una contraseña.',
+            ]),
             'cooking_skill' => 'nullable|string',
             'diet_type' => 'nullable|string',
         ]);
