@@ -130,6 +130,7 @@
             background: #ffffff27;
             border: 1px solid #ccc;
             transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+            align-content: center;
         }
 
         .radio-box:not(:first-of-type) {
