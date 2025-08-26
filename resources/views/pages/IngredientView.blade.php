@@ -96,4 +96,8 @@
         font-weight: bold;
         cursor: pointer;
     }
+
+    body{
+        padding-bottom: 50px;
+    }
 </style>
