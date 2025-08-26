@@ -207,13 +207,15 @@
                     <input id="diet-lowcarb" type="radio" name="diet_type" value="Bajos carbohidratos">
                     <label for="diet-lowcarb" class="radio-box">Bajos Carbohidratos</label>
                     <input id="diet-other" type="radio" name="diet_type" value="Otra">
-                    <label for="diet-orher" class="radio-box">Otra</label>
+                    <label for="diet-other" class="radio-box">Otra</label>
                 </div>
                 <div class="terms">
                     <input type="checkbox" id="terms" name="terms" required />
                     <label for="terms">
-                        Acepto el <a href="/docs/Aviso_Legal_y_Descargo_de_Responsabilidad.pdf" target="_blank">Aviso Legal</a>
-                        y los <a href="/docs/Terminos_y_Condiciones_de_Uso.pdf" target="_blank">T&eacute;rminos de Uso</a>
+                        Acepto el <a href="/docs/Aviso_Legal_y_Descargo_de_Responsabilidad.pdf" target="_blank">Aviso
+                            Legal</a>
+                        y los <a href="/docs/Terminos_y_Condiciones_de_Uso.pdf" target="_blank">T&eacute;rminos de
+                            Uso</a>
                     </label>
                 </div>
                 <button type="submit">Registrarse</button>
