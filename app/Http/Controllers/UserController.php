@@ -22,12 +22,12 @@ class UserController extends Controller
             'cooking_skill' => 'nullable|string',
             'diet_type' => 'nullable|string',
         ], [
-            'name.required' => 'Debes ingresar tu nombre.',
-            'email.required' => 'Debes ingresar tu correo.',
-            'email.email' => 'Ingresa un correo válido.',
-            'email.unique' => 'Este correo ya está registrado.',
-            'password.required' => 'Debes ingresar una contraseña.',
-            'password.min' => 'La contraseña debe tener al menos 6 caracteres e incluir como mínimo 1 minúscula, 1 mayúscula y 1 número.',
+            'name.required' => 'Debes ingresar tu nombre',
+            'email.required' => 'Debes ingresar tu correo',
+            'email.email' => 'Ingresa un correo válido',
+            'email.unique' => 'Este correo ya está registrado',
+            'password.required' => 'Debes ingresar una contraseña',
+            'password.min' => 'La contraseña debe tener al menos 6 caracteres e incluir como mínimo 1 minúscula, 1 mayúscula y 1 número',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -50,19 +50,22 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required|string',
+        ],[
+            'email.required' => 'Debes ingresar tu correo',
+            'email.email' => 'Ingresa un correo válido',
+            'password.required' => 'Debes ingresar una contraseña',
         ]);
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
         }
         $credentials = $request->only('email', 'password');
         $token = Auth::attempt($credentials);
         if (!$token) {
-            return response()->json(
-                [
-                    'error' => 'Wrong credentials',
-                ],
-                401
-            );
+            return redirect()->back()
+                ->withErrors($token)
+                ->withInput();
         }
         $user = Auth::user();
         return redirect()->route('home');

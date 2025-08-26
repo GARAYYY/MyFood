@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - MyFood</title>
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         * {
             margin: 0;
@@ -93,7 +94,7 @@
             text-decoration: none;
             font-size: 1rem;
             display: block;
-        } 
+        }
 
         button:hover,
         .btn-link:hover {
@@ -129,6 +130,16 @@
 <body>
     <div class="login">
         <div class="panel">
+            @if ($errors->any())
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de validación',
+                        html: `{!! implode('<br>', $errors->all()) !!}`,
+                        confirmButtonText: 'Cerrar'
+                    });
+                </script>
+            @endif
             <img src="{{ asset('images/logo.png') }}" alt="Food Icon">
             <h1>Inicia Sesi&oacute;n</h1>
             <p>Bienvenido a MyFood</p>
