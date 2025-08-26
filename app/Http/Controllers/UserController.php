@@ -18,29 +18,31 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            $validator = Validator::make($request->all(), [
-                'password' => 'required|string|min:6',
-            ], [
-                'password.min' => 'La contraseña debe tener al menos 6 caracteres.',
-                'password.required' => 'Debes ingresar una contraseña.',
-            ]),
+            'password' => 'required|string|min:6',
             'cooking_skill' => 'nullable|string',
             'diet_type' => 'nullable|string',
+        ], [
+            'name.required' => 'Debes ingresar tu nombre.',
+            'email.required' => 'Debes ingresar tu correo.',
+            'email.email' => 'Ingresa un correo válido.',
+            'email.unique' => 'Este correo ya está registrado.',
+            'password.required' => 'Debes ingresar una contraseña.',
+            'password.min' => 'La contraseña debe tener al menos 6 caracteres.',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
+        $data = $validator->validated();
         $user = User::create([
-            'name' => $validator->validated()['name'],
-            'email' => $validator->validated()['email'],
-            'password' => Hash::make($validator->validated()['password']),
-            'cooking_skill' => $validator->validated()['cooking_skill'] ?? null,
-            'diet_type' => $validator->validated()['diet_type'] ?? null,
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'cooking_skill' => $data['cooking_skill'] ?? null,
+            'diet_type' => $data['diet_type'] ?? null,
             'role' => 0,
         ]);
-
         return redirect()->intended('/');
     }
     public function login(Request $request)
