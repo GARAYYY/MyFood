@@ -65,7 +65,7 @@ class UserController extends Controller
         $user = Auth::user();
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $user->user_id,
+            'email' => 'required|email|unique:users,email,' . $user->user_id . ',user_id',
             'password' => 'nullable|string|min:6|confirmed',
             'cooking_skill' => 'required|string',
             'diet_type' => 'required|string',
