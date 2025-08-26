@@ -41,11 +41,11 @@
                 <strong>Nivel de cocina:</strong>
                 <select name="cooking_skill" required>
                     <option disabled value="">Elige un nivel</option>
-                    <option value="Beginner" {{ $user->cooking_skill == 'Beginner' ? 'selected' : '' }}>Principiante
+                    <option value="Beginner" {{ $user->cooking_skill == 'Principiante' ? 'selected' : '' }}>Principiante
                     </option>
-                    <option value="Intermediate" {{ $user->cooking_skill == 'Intermediate' ? 'selected' : '' }}>
+                    <option value="Intermediate" {{ $user->cooking_skill == 'Intermedio' ? 'selected' : '' }}>
                         Intermedio</option>
-                    <option value="Advanced" {{ $user->cooking_skill == 'Advanced' ? 'selected' : '' }}>Avanzado</option>
+                    <option value="Advanced" {{ $user->cooking_skill == 'Avanzado' ? 'selected' : '' }}>Avanzado</option>
                 </select>
             </p>
             <p>
