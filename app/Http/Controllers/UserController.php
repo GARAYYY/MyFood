@@ -50,7 +50,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required|string',
-        ],[
+        ], [
             'email.required' => 'Debes ingresar tu correo',
             'email.email' => 'Ingresa un correo válido',
             'password.required' => 'Debes ingresar una contraseña',
@@ -64,7 +64,7 @@ class UserController extends Controller
         $token = Auth::attempt($credentials);
         if (!$token) {
             return redirect()->back()
-                ->withErrors($token)
+                ->withErrors(['login_error' => 'Las credenciales ingresadas no son correctas.'])
                 ->withInput();
         }
         $user = Auth::user();
