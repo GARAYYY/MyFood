@@ -10,7 +10,7 @@
         </a>
         <span> | support@myfood.click | <a href="https://myfood.click/">https://myfood.click/</a></span>
     </div>
-    <span class="version">V1.3</span>
+    <span class="version">V1.4</span>
 </div>
 
 <style>

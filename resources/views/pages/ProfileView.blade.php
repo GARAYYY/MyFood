@@ -53,11 +53,11 @@
             </p>
             <p>
                 <strong>Contrase&ntilde;a:</strong>
-                <input name="password" type="password" placeholder="Leave blank to keep current">
+                <input name="password" type="password" placeholder="Dejar en blanco para mantener la actual">
             </p>
             <p>
                 <strong>Confirmar contrase&ntilde;a:</strong>
-                <input name="password_confirmation" type="password" placeholder="Confirm password">
+                <input name="password_confirmation" type="password" placeholder="Confirmar contraseña">
             </p>
             <p>
                 <strong>Nivel de cocina:</strong>
