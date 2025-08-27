@@ -8,6 +8,28 @@
 @endphp
 
 <div class="profile-container">
+    @if ($errors->any())
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al actualizar perfil',
+                html: `{!! implode('<br>', $errors->all()) !!}`,
+                confirmButtonText: 'Cerrar'
+            });
+        </script>
+    @endif
+    @if (session('success'))
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: "{{ session('success') }}",
+                confirmButtonText: 'Aceptar'
+            });
+        </script>
+    @endif
     <div class="user-info">
         <div class="user-header">
             <div class="avatar">
@@ -41,7 +63,8 @@
                 <strong>Nivel de cocina:</strong>
                 <select name="cooking_skill" required>
                     <option disabled value="">Elige un nivel</option>
-                    <option value="Principiante" {{ $user->cooking_skill == 'Principiante' ? 'selected' : '' }}>Principiante
+                    <option value="Principiante" {{ $user->cooking_skill == 'Principiante' ? 'selected' : '' }}>
+                        Principiante
                     </option>
                     <option value="Intermedio" {{ $user->cooking_skill == 'Intermedio' ? 'selected' : '' }}>
                         Intermedio</option>

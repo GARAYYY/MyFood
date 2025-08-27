@@ -8,11 +8,34 @@
 
 <form action="{{ url('/instructions/store') }}" method="POST">
     @csrf
+    @if ($errors->any())
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error en las instrucciones',
+                html: `{!! implode('<br>', $errors->all()) !!}`,
+                confirmButtonText: 'Cerrar'
+            });
+        </script>
+    @endif
+    @if (session('success'))
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: "{{ session('success') }}",
+                confirmButtonText: 'Aceptar'
+            });
+        </script>
+    @endif
     <input type="hidden" name="recipe_id" value="{{ $recipeId }}">
     <div id="steps-container">
         <div class="step-row">
             <label class="step-label">Paso 1</label>
-            <textarea name="instructions[]" placeholder="Escribe las instrucciones del paso..." class="step-textarea"></textarea>
+            <textarea name="instructions[]" placeholder="Escribe las instrucciones del paso..."
+                class="step-textarea"></textarea>
         </div>
     </div>
 
@@ -26,7 +49,7 @@
 
 <script>
     let stepCount = 1;
-    document.getElementById('add-step').addEventListener('click', function() {
+    document.getElementById('add-step').addEventListener('click', function () {
         stepCount++;
         const container = document.getElementById('steps-container');
         const div = document.createElement('div');
@@ -40,53 +63,53 @@
 </script>
 
 <style>
-.form-title {
-    text-align: center;
-    margin: 2rem 0;
-    font-size: 2rem;
-    font-weight: bold;
-}
+    .form-title {
+        text-align: center;
+        margin: 2rem 0;
+        font-size: 2rem;
+        font-weight: bold;
+    }
 
-.step-row {
-    background: #E2F3E9;
-    padding: 1rem;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-}
+    .step-row {
+        background: #E2F3E9;
+        padding: 1rem;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+    }
 
-.step-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
-}
+    .step-label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
 
-.step-textarea {
-    width: 98%;
-    min-height: 80px;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    .step-textarea {
+        width: 98%;
+        min-height: 80px;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    gap: 1rem;
-}
+    .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        gap: 1rem;
+    }
 
-button {
-    padding: 0.8rem 2rem;
-    background: #9CD3C2;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
+    button {
+        padding: 0.8rem 2rem;
+        background: #9CD3C2;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+    }
 
-body{
-    padding-bottom: 50px;
-}
+    body {
+        padding-bottom: 50px;
+    }
 </style>

@@ -78,13 +78,30 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $user = Auth::user();
-        $request->validate([
+        $validator = \Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->user_id . ',user_id',
             'password' => 'nullable|string|min:6|confirmed',
-            'cooking_skill' => 'required|string',
-            'diet_type' => 'required|string',
+            'cooking_skill' => 'required|string|in:Principiante,Intermedio,Avanzado',
+            'diet_type' => 'required|string|in:Ninguna,Vegana,Vegetariana,Bajos carbohidratos,Otra',
+        ], [
+            'name.required' => 'El nombre es obligatorio.',
+            'name.string' => 'El nombre debe ser un texto.',
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.email' => 'El correo debe tener un formato válido.',
+            'email.unique' => 'Este correo ya está en uso.',
+            'password.min' => 'La contraseña debe tener al menos 6 caracteres.',
+            'password.confirmed' => 'Las contraseñas no coinciden.',
+            'cooking_skill.required' => 'Debes seleccionar tu nivel de cocina.',
+            'cooking_skill.in' => 'El nivel de cocina seleccionado no es válido.',
+            'diet_type.required' => 'Debes seleccionar tu tipo de dieta.',
+            'diet_type.in' => 'El tipo de dieta seleccionado no es válido.',
         ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         $user->name = $request->name;
         $user->email = $request->email;
         $user->cooking_skill = $request->cooking_skill;
@@ -93,7 +110,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->save();
-        return redirect()->back()->with('success', 'Profile updated successfully!');
+        return redirect()->back()->with('success', '¡Perfil actualizado correctamente!');
     }
     public function sendCustomEmails(Request $request)
     {

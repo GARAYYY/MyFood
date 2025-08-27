@@ -9,6 +9,17 @@
 
 <form action="{{ url('/recipesxingredients') }}" method="POST">
     @csrf
+    @if ($errors->any())
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error en ingredientes',
+                html: `{!! implode('<br>', $errors->all()) !!}`,
+                confirmButtonText: 'Cerrar'
+            });
+        </script>
+    @endif
     <input type="hidden" name="recipe_id" value="{{ $recipeId }}">
     <div class="form">
         <div class="ingredients-section">
@@ -97,7 +108,7 @@
         cursor: pointer;
     }
 
-    body{
+    body {
         padding-bottom: 50px;
     }
 </style>

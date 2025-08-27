@@ -9,6 +9,22 @@ class RecipeXIngredientController extends Controller
 {
     public function store(Request $request)
     {
+        $validator = \Validator::make($request->all(), [
+            'recipe_id' => 'required|exists:recipes,recipe_id',
+            'ingredient_ids' => 'required|array|min:1',
+            'quantities' => 'required|array',
+        ], [
+            'recipe_id.required' => 'Falta el identificador de la receta.',
+            'recipe_id.exists' => 'La receta seleccionada no existe.',
+            'ingredient_ids.required' => 'Debes seleccionar al menos un ingrediente.',
+            'ingredient_ids.array' => 'El formato de los ingredientes es incorrecto.',
+            'ingredient_ids.min' => 'Selecciona al menos un ingrediente.',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         $recipeId = $request->input('recipe_id');
         $ingredientIds = $request->input('ingredient_ids', []);
         $quantities = $request->input('quantities', []);
@@ -20,8 +36,6 @@ class RecipeXIngredientController extends Controller
                 'recipe_id' => $recipeId,
                 'ingredient_id' => $ingredientId,
                 'quantity' => $quantity,
-                'created_at' => now(),
-                'updated_at' => now()
             ]);
         }
         return redirect("/step/{$recipeId}");
