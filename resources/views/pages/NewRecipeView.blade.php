@@ -98,7 +98,6 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         font-family: "Century Gothic", sans-serif;
-        font-size: 0.95rem
     }
 
     .button-container {
